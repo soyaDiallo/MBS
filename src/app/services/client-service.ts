@@ -10,12 +10,8 @@ export class ClientService {
     constructor(private http: HttpClient) { }
 
     
-    getAllClient() {
-        const httpheaders = new HttpHeaders(
-            {'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'GET'
-        });    
-        return this.http.get(`${this.url}/clients`,{headers:httpheaders});
+    getAllClient(): Observable<any> {  
+        return this.http.get(`${this.url}/clients`);
     }
 
     deleteClient(id: number): Observable<any> {
@@ -25,4 +21,12 @@ export class ClientService {
     getClient(id: number): Observable<any> {
         return this.http.get(`${this.url}/clients/${id}`,);
     }
+
+    createClient(client: Object): Observable<Object> {
+        return this.http.post(`${this.url}/clients`, client);
+      }
+    
+    updateClient(id: number, value: any): Observable<Object> {
+        return this.http.put(`${this.url}/${id}`, value);
+      }
 }

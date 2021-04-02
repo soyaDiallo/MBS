@@ -26,6 +26,8 @@
             <td>{{client.email}}</td>
             <td>{{client.tel}}</td>
             <td>{{client.adresse}}</td>
+            <td><button (click)="updateClient(client.id)" class="btn btn-success">Modifier</button>
+            <td><button (click)="deleteClient(client.id)" class="btn btn-danger">Supprimer</button>
           </tr>
         </tbody>
       </table>

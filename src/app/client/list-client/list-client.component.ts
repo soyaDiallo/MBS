@@ -16,16 +16,14 @@ export class ListClientComponent implements OnInit {
   constructor(private http:HttpClient,private clientService:ClientService, private router:Router) {  }
   
   ngOnInit() {
-    //this.http.get('http://localhost:8080/clients').subscribe((data=>{this.clientList=data}));
-    //console.log(this.clientList);
     this.loadData();
   }
 
   loadData(){
-    this.clientService.getAllClient().subscribe((data=>{this.clientList=data;}));
+    this.clientService.getAllClient().subscribe((data=>{this.clientList=data['_embedded']['clients'];}));
   }
 
-  deleteEmploye(id:number){
+  deleteClient(id:number){
     this.clientService.deleteClient(id).subscribe(
       data=>{
         console.log(data);
@@ -35,5 +33,9 @@ export class ListClientComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+
+  updateClient(id: number){
+    this.router.navigate(['updateClient', id]);
   }
 }

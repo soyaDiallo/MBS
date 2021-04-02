@@ -16,6 +16,9 @@ import { ListUserComponent } from './user/list-user/list-user.component';
 import { NewTransactionComponent } from './transaction/new-transaction/new-transaction.component';
 import { ListTransactionComponent } from './transaction/list-transaction/list-transaction.component';
 import { MenuComponent } from './menu/menu.component';
+import { DetailMachineComponent } from './machine/detail-machine/detail-machine.component';
+import { UpdateClientComponent } from './client/update-client/update-client.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,12 +34,15 @@ import { MenuComponent } from './menu/menu.component';
     ListUserComponent,
     NewTransactionComponent,
     ListTransactionComponent,
-    MenuComponent
+    MenuComponent,
+    DetailMachineComponent,
+    UpdateClientComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [MenuComponent]

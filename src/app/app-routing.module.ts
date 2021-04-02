@@ -12,14 +12,18 @@ import { ListTransactionComponent } from './transaction/list-transaction/list-tr
 import { NewTransactionComponent } from './transaction/new-transaction/new-transaction.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MenuComponent } from './menu/menu.component';
+import { DetailMachineComponent } from './machine/detail-machine/detail-machine.component';
+import { UpdateClientComponent } from './client/update-client/update-client.component';
 
 const routes: Routes = [
   { path : 'menu', component : MenuComponent },
   { path : 'dashboard', component : DashboardComponent },
   { path : 'listClient', component : ListClientComponent },
   { path : 'newClient', component : NewClientComponent },
+  { path : 'updateClient/:id', component : UpdateClientComponent },
   { path : 'listMachine', component : ListMachineComponent },
   { path : 'newMachine', component : NewMachineComponent},
+  { path : 'machineDetails', component : DetailMachineComponent},
   { path : 'listUser', component : ListUserComponent },
   { path : 'newUser', component : NewUserComponent },
   { path : 'listSite', component : ListSiteComponent },
