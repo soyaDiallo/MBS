@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NewTransactionComponent } from './new-transaction.component';
+import { ListErreurComponent } from './list-erreur.component';
 
-describe('NewTransactionComponent', () => {
-  let component: NewTransactionComponent;
-  let fixture: ComponentFixture<NewTransactionComponent>;
+describe('ListErreurComponent', () => {
+  let component: ListErreurComponent;
+  let fixture: ComponentFixture<ListErreurComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NewTransactionComponent ]
+      declarations: [ ListErreurComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NewTransactionComponent);
+    fixture = TestBed.createComponent(ListErreurComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

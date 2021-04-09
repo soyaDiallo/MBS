@@ -1,0 +1,37 @@
+<app-menu></app-menu>
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 ">
+    <h1 class="h2">liste des sacs</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+      <div class="btn-group mr-2">
+        <a href="dashboard" type="button" class="btn btn-sm btn-outline-secondary">Accueil</a>
+        <a href="newSac" type="button" class="btn btn-sm btn-outline-secondary">Nouveau sac</a>
+      </div>
+    </div>
+  </div>
+  <input class="form-control form-control-dark w-100" [(ngModel)]="searchValue" type="text" placeholder="Recherche"
+    aria-label="Recherche">
+  <br>
+  <div class="table-responsive">
+    <table class="table table-striped table-sm">
+      <thead>
+        <tr>
+          <th>Num</th>
+          <th>Capacité</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let sac of sacs | sacFilter:searchValue ">
+          <td>{{sac.num}}</td>
+          <td>{{sac.capacite}}</td>
+          <td>
+            <button (click)="detailSac(sac.id)" class="btn btn-warning btn-sm">Detail</button>
+            <button (click)="updateSac(sac.id)" class="btn btn-success btn-sm">Modifier</button>
+            <button (click)="deleteSac(sac.id)" class="btn btn-danger btn-sm">Supprimer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</main>

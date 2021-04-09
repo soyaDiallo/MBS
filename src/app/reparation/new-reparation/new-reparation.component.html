@@ -1,0 +1,28 @@
+<app-menu></app-menu>
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Nouvelle reparation</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+      <div class="btn-group mr-2">
+        <a href="dashboard" type="button" class="btn btn-sm btn-outline-secondary">Accueil</a>
+        <a href="listReparation" type="button" class="btn btn-sm btn-outline-secondary">Liste des reparations</a>
+      </div>
+    </div>
+  </div>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="num">Num</label>
+      <input type="text" class="form-control" id="num" required [(ngModel)]="reparation.num" name="num"  placeholder="Entrer le numero" > 
+    </div>
+    <div class="form-group">
+      <label for="motif">Motif </label>
+      <input type="text" class="form-control" id="motif" required [(ngModel)]="reparation.motif" name="motif"  aria-describedby="emailHelp" placeholder="Entrer le motif" >
+    </div>
+    <div class="form-group">
+      <label for="date">Date de reparation</label>
+      <input type="date" class="form-control" id="date" required [(ngModel)]="reparation.date_reparation" name="date"  placeholder="Entrer la date" >
+    </div>
+   
+    <button type="submit" class="btn btn-primary">Ajouter</button>
+  </form>
+</main>

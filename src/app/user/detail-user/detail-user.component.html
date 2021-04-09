@@ -1,0 +1,37 @@
+<app-menu></app-menu>
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+    <div
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Detail de l'employé {{ user.nom }} {{ user.prenom }}</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group mr-2">
+                <a href="dashboard" type="button" class="btn btn-sm btn-outline-secondary">Accueil</a>
+                <a href="listUser" type="button" class="btn btn-sm btn-outline-secondary">Liste des employés</a>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center align-items-center " style="height:80vh">
+        <div class="col-md-3 order-md-1">
+            <div class="card mb-3 shadow-sm">
+                <div class="card-body" *ngIf="user">
+                    <div class="form-group">
+                        <label for="name"><b>Nom : </b></label>
+                        {{ user.nom }}
+                    </div>
+                    <div class="form-group">
+                        <label for="email"><b>Prenom : </b></label>
+                        {{ user.prenom }}
+                    </div>
+                    <div class="form-group">
+                        <label for="telephone"><b>Login : </b></label>
+                        {{ user.login }}
+                    </div>
+                    <div class="form-group">
+                        <label for="adresse"><b>Type : </b></label>
+                        {{ user.type }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

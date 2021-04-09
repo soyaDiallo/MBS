@@ -12,7 +12,8 @@ import { ClientService } from '../../services/client-service';
 export class ListClientComponent implements OnInit {
 
   clientList:any;
- 
+  searchValue: String;
+  clients:Client[];
   constructor(private http:HttpClient,private clientService:ClientService, private router:Router) {  }
   
   ngOnInit() {
@@ -20,7 +21,7 @@ export class ListClientComponent implements OnInit {
   }
 
   loadData(){
-    this.clientService.getAllClient().subscribe((data=>{this.clientList=data['_embedded']['clients'];}));
+    this.clientService.getAllClient().subscribe((data=>{this.clients=data['_embedded']['clients'];}));
   }
 
   deleteClient(id:number){
@@ -37,5 +38,8 @@ export class ListClientComponent implements OnInit {
 
   updateClient(id: number){
     this.router.navigate(['updateClient', id]);
+  }
+  detailClient(id: number){
+    this.router.navigate(['detailClient', id]);
   }
 }

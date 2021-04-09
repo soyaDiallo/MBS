@@ -27,6 +27,7 @@ export class ClientService {
       }
     
     updateClient(id: number, value: any): Observable<Object> {
-        return this.http.put(`${this.url}/${id}`, value);
+        console.log(value);
+        return this.http.put(`${this.url}/clients/${id}`, value);
       }
 }

@@ -4,10 +4,10 @@
     data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <input class="form-control form-control-dark w-100" type="text" placeholder="Recherche" aria-label="Recherche">
+
   <ul class="navbar-nav px-3">
     <li class="nav-item text-nowrap">
-      <a class="nav-link" href="#">Deconnexion</a>
+      <button type="button" class="text-white bg-dark" (click)="deconnexion()">Deconnexion</button>
     </li>
   </ul>
 </nav>
@@ -18,39 +18,72 @@
       <div class="sidebar-sticky pt-3">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link active" href="dashboard">
-              <span data-feather="home"></span>
-              Dashboard <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="listTransaction">
-              <span data-feather="file"></span>
-              Transactions
+            <a class="nav-link " href="dashboard">
+              <span class="material-icons">dashboard</span>
+              Dashboard
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="listMachine">
               <span data-feather="shopping-cart"></span>
+              <span class="material-icons">
+                print
+              </span>
               Machines
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="listpiece">
+              <span data-feather="users"></span>
+              <span class="material-icons">
+                settings
+              </span>
+              Pièces de rechange
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="listSac">
+              <span data-feather="users"></span>
+              <span class="material-icons">
+                local_mall
+              </span>
+              Sacs
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="listReparation">
+              <span data-feather="users"></span>
+              <span class="material-icons">
+                handyman
+              </span>
+              Reparations
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="listSite">
               <span data-feather="users"></span>
+              <span class="material-icons">
+                maps_home_work
+              </span>
               Sites
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="listClient">
               <span data-feather="bar-chart-2"></span>
+              <span class="material-icons">
+                people
+              </span>
               Clients
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="listUser">
               <span data-feather="layers"></span>
-              Users
+              <span class="material-icons">
+                person
+              </span>
+              Employés
             </a>
           </li>
         </ul>

@@ -1,0 +1,32 @@
+<app-menu></app-menu>
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Modification du site {{site.nom}}</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+      <div class="btn-group mr-2">
+        <a href="dashboard" type="button" class="btn btn-sm btn-outline-secondary">Accueil</a>
+        <a href="listSite" type="button" class="btn btn-sm btn-outline-secondary">Liste des sites</a>
+      </div>
+    </div>
+  </div>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="nom">Nom</label>
+      <input type="text" class="form-control" id="nom" required [(ngModel)]="site.nom" name="name"  placeholder="Entrer le nom" > 
+    </div>
+    <div class="form-group">
+      <label for="adresse">Adresse</label>
+      <input type="text" class="form-control" id="adresse" required [(ngModel)]="site.adresse" name="adresse"  placeholder="Entrer l'adresse" >
+    </div>
+    <div class="form-group">
+        <label for="ville">Ville </label>
+        <input type="text" class="form-control" id="ville" required [(ngModel)]="site.ville" name="ville"  aria-describedby="emailHelp" placeholder="Entrer la ville" >
+      </div>
+      <div class="form-group">
+        <label for="pays">Pays</label>
+        <input type="text" class="form-control" id="pays" required [(ngModel)]="site.paye" name="pays"  placeholder="Entrer le pays" >
+      </div>
+
+    <button type="submit" class="btn btn-primary">Modifier</button>
+  </form>
+</main>

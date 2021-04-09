@@ -1,35 +1,41 @@
-<main role="main" class="col-md-9 ml-sm-auto col-lg-12 px-md-4">
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Clients</h1>
-        <div class="btn-toolbar mb-2 mb-md-0">
-          <div class="btn-group mr-2">
-            <a href="dashboard" type="button" class="btn btn-sm btn-outline-secondary">Accueil</a>
-            <a href="newClient" type="button" class="btn btn-sm btn-outline-secondary">Nouveau Client</a>
-          </div>
-        </div>
+<app-menu></app-menu>
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 ">
+    <h1 class="h2">Liste des Clients</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+      <div class="btn-group mr-2">
+        <a href="dashboard" type="button" class="btn btn-sm btn-outline-secondary">Accueil</a>
+        <a href="newClient" type="button" class="btn btn-sm btn-outline-secondary">Nouveau Client</a>
       </div>
-    <div class="table-responsive">
-      <table class="table table-striped table-sm">
-        <thead>
-          <tr>
-            <th>Nom</th>
-            <th>Email</th>
-            <th>Telephone</th>
-            <th>Adresse</th>
-            <th>Modifier</th>
-            <th>Supprimer</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let client of clientList">
-            <td>{{client.name}}</td>
-            <td>{{client.email}}</td>
-            <td>{{client.tel}}</td>
-            <td>{{client.adresse}}</td>
-            <td><button (click)="updateClient(client.id)" class="btn btn-success">Modifier</button>
-            <td><button (click)="deleteClient(client.id)" class="btn btn-danger">Supprimer</button>
-          </tr>
-        </tbody>
-      </table>
     </div>
-  </main>
+  </div>
+  <input class="form-control form-control-dark w-100" [(ngModel)]="searchValue" type="text" placeholder="Recherche"
+    aria-label="Recherche">
+  <br>
+  <div class="table-responsive">
+    <table class="table table-striped table-sm">
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Email</th>
+          <th>Telephone</th>
+          <th>Adresse</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let client of clients | clientFilter:searchValue">
+          <td>{{client.name}}</td>
+          <td>{{client.email}}</td>
+          <td>{{client.tel}}</td>
+          <td>{{client.adresse}}</td>
+          <td>
+            <button (click)="detailClient(client.id)" class="btn btn-warning btn-sm">Detail</button>
+            <button (click)="updateClient(client.id)" class="btn btn-success btn-sm">Modifier</button>
+            <button (click)="deleteClient(client.id)" class="btn btn-danger btn-sm">Supprimer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</main>

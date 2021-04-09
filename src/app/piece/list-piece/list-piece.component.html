@@ -1,0 +1,39 @@
+<app-menu></app-menu>
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 ">
+    <h1 class="h2">liste des pièces</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+      <div class="btn-group mr-2">
+        <a href="dashboard" type="button" class="btn btn-sm btn-outline-secondary">Accueil</a>
+        <a href="newPiece" type="button" class="btn btn-sm btn-outline-secondary">Nouvelle pièce</a>
+      </div>
+    </div>
+  </div>
+  <input class="form-control form-control-dark w-100" [(ngModel)]="searchValue" type="text" placeholder="Recherche"
+    aria-label="Recherche">
+  <br>
+  <div class="table-responsive">
+    <table class="table table-striped table-sm">
+      <thead>
+        <tr>
+          <th>Num</th>
+          <th>Designation</th>
+          <th>Date d'arrivée</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let piece of pieces | pieceFilter:searchValue ">
+          <td>{{piece.num}}</td>
+          <td>{{piece.designation}}</td>
+          <td>{{piece.date_arrivee | date: 'dd/MM/yyyy'}}</td>
+          <td>
+            <button (click)="detailPiece(piece.id)" class="btn btn-warning btn-sm">Detail</button>
+            <button (click)="updatePiece(piece.id)" class="btn btn-success btn-sm">Modifier</button>
+            <button (click)="deletePiece(piece.id)" class="btn btn-danger btn-sm">Supprimer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</main>

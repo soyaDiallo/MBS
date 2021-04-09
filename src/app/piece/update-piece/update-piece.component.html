@@ -1,0 +1,28 @@
+<app-menu></app-menu>
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Modification de la pièce n°</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+      <div class="btn-group mr-2">
+        <a href="dashboard" type="button" class="btn btn-sm btn-outline-secondary">Accueil</a>
+        <a href="listpiece" type="button" class="btn btn-sm btn-outline-secondary">Liste des pièces</a>
+      </div>
+    </div>
+  </div>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="num">Numero</label>
+      <input type="text" class="form-control" id="num" required [(ngModel)]="piece.num" name="num"  placeholder="Entrer le numero" > 
+    </div>
+    <div class="form-group">
+      <label for="designation">Designation </label>
+      <input type="text" class="form-control" id="designation" required [(ngModel)]="piece.designation" name="designation" placeholder="Entrer la designation" >
+    </div>
+    <div class="form-group">
+      <label for="date_arrivee">Date d'arrivée</label>
+      <input type="date" class="form-control" id="date_arrivee" required [(ngModel)]="piece.date_arrivee" name="date_arrivee"  placeholder="Entrer la date" >
+    </div>
+
+    <button type="submit" class="btn btn-primary">Modifier</button>
+  </form>
+</main>

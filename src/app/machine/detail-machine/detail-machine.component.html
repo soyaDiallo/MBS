@@ -1,36 +1,41 @@
-<main role="main" class="col-md-9 ml-sm-auto col-lg-12 px-md-4">
-
+<app-menu></app-menu>
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
     <div
         class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Detail de la machine DE-100</h1>
+        <h1 class="h2">Detail de la machine {{ machine.designation }}</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
             <div class="btn-group mr-2">
                 <a href="dashboard" type="button" class="btn btn-sm btn-outline-secondary">Accueil</a>
+                <a href="listMachine" type="button" class="btn btn-sm btn-outline-secondary">Liste des machines</a>
             </div>
         </div>
     </div>
-    <div class="row featurette">
-        <div class="col-md-7 order-md-2">
-            <h2 class="featurette-heading">Transactions</h2>
-            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis
-                euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus,
-                tellus ac cursus commodo.</p>
-                <h2 class="text-danger featurette-heading">Erreurs</h2>
-                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis
-                    euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus,
-                    tellus ac cursus commodo.</p>
-        </div>
-        <div class="col-md-5 order-md-1">
-            <div class="card mb-4 shadow-sm">
-                <div class="card-body">
-                    <img src="../../assets/brand/de-100-600x600.png " width="500px" height="500px">
-                    <div class="d-flex justify-content-between align-items-center">
-                        DE-100
-                        <small class="text-success">Actif</small>
+    <div class="row justify-content-center align-items-center " style="height:80vh">
+        <div class="col-md-3 order-md-1">
+            <div class="card mb-3 shadow-sm">
+                <div class="card-body" *ngIf="machine">
+                    <div class="text-sm-left">
+                        <img src="../../assets/brand/de-100-600x600.png " width="200px" height="200px">
+                      </div>
+                    <div class="form-group">
+                        <label for="name"><b>Numero : </b></label>
+                        {{ machine.num }}
+                    </div>
+                    <div class="form-group">
+                        <label for="email"><b>Designation : </b></label>
+                        {{ machine.designation }}
+                    </div>
+                    <div class="form-group">
+                        <label for="telephone"><b>Statut : </b></label>
+                        {{ machine.status }}
+                        <img src="../../assets/brand/green.png" width="10px" height="10px">
+                    </div>
+                    <div class="form-group">
+                        <label for="adresse"><b>Date d'arrivée : </b></label>
+                        {{ machine.date_arrivee | date: 'dd/MM/yyyy'}}
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 </main>

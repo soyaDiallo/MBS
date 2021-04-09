@@ -1,0 +1,37 @@
+<app-menu></app-menu>
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+    <div
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Detail du site {{ site.nom }}</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group mr-2">
+                <a href="dashboard" type="button" class="btn btn-sm btn-outline-secondary">Accueil</a>
+                <a href="listSite" type="button" class="btn btn-sm btn-outline-secondary">Liste des sites</a>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center align-items-center " style="height:80vh">
+        <div class="col-md-3 order-md-1">
+            <div class="card mb-3 shadow-sm">
+                <div class="card-body" *ngIf="site">
+                    <div class="form-group">
+                        <label for="name"><b>Nom : </b></label>
+                        {{ site.nom }}
+                    </div>
+                    <div class="form-group">
+                        <label for="email"><b>Adresse : </b></label>
+                        {{ site.adresse }}
+                    </div>
+                    <div class="form-group">
+                        <label for="telephone"><b>Ville : </b></label>
+                        {{ site.ville }}
+                    </div>
+                    <div class="form-group">
+                        <label for="adresse"><b>Pays : </b></label>
+                        {{ site.paye }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

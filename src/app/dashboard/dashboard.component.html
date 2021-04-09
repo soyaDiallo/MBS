@@ -1,168 +1,391 @@
-<main role="main" class="col-md-9 ml-sm-auto col-lg-12 px-md-4">
+<app-menu></app-menu>
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+  <ng-template #transaction let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Liste des Transactions</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="table-responsive">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th>N° transaction</th>
+              <th>Responsable</th>
+              <th>Type</th>
+              <th>Montant</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>001</td>
+              <td>Chebihi</td>
+              <td>depot manuel</td>
+              <td>15000</td>
+              <td>20/02/2021</td>
+            </tr>
+            <tr>
+              <td>001</td>
+              <td>Chebihi</td>
+              <td>depot manuel</td>
+              <td>15000</td>
+              <td>20/02/2021</td>
+            </tr> <tr>
+              <td>002</td>
+              <td>Chebihi</td>
+              <td>collection</td>
+              <td>15000</td>
+              <td>20/02/2021</td>
+            </tr> <tr>
+              <td>003</td>
+              <td>Chebihi</td>
+              <td>depot </td>
+              <td>15000</td>
+              <td>20/02/2021</td>
+            </tr> <tr>
+              <td>004</td>
+              <td>Chebihi</td>
+              <td>depot manuel</td>
+              <td>15000</td>
+              <td>20/02/2021</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="detailTransaction()">Voir plus</button>
+    </div>
+  </ng-template>
+  <!--......................................erreur.............................................-->
+  <ng-template #erreur let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Liste des Erreurs</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="table-responsive">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th>Type erreur</th>
+              <th>Message erreur</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>error</td>
+              <td>message ............................</td>
+              <td>20/02/2021</td>
+            </tr>
+            <tr>
+              <td>error</td>
+              <td>message ............................</td>
+              <td>20/02/2021</td>
+            </tr><tr>
+              <td>warning</td>
+              <td>message ............................</td>
+              <td>20/02/2021</td>
+            </tr><tr>
+              <td>error</td>
+              <td>message ............................</td>
+              <td>20/02/2021</td>
+            </tr><tr>
+              <td>error</td>
+              <td>message ............................</td>
+              <td>20/02/2021</td>
+            </tr><tr>
+              <td>warning</td>
+              <td>message ............................</td>
+              <td>20/02/2021</td>
+            </tr><tr>
+              <td>error</td>
+              <td>message ............................</td>
+              <td>20/02/2021</td>
+            </tr><tr>
+              <td>warning</td>
+              <td>message ............................</td>
+              <td>20/02/2021</td>
+            </tr><tr>
+              <td>warning</td>
+              <td>message ............................</td>
+              <td>20/02/2021</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="detailErreur()">Voir plus</button>
+    </div>
+  </ng-template>
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-2">
       <div class="card mb-4 shadow-sm">
         <div class="card-body align-items-center">
-          <img src="../../assets/brand/de-100-600x600.png " width="300px" height="300px">
-          <div class="d-flex justify-content-between align-items-center">
+          <img src="../../assets/brand/de-100-600x600.png " width="200px" height="200px">
+          <div class="text-sm-left">
+            <img src="../../assets/brand/green.png" width="10px" height="10px">
             DE-100
-            <small class="text-success">Actif</small>
           </div>
-          <a href="/machineDetails"><small class="text-muted">Voir Details</small></a>
+          <div class="d-flex justify-content-between">
+            <button type="button" (click)="open(transaction)" class="btn btn-secondary btn-sm">Transactions</button>
+            <button type="button" (click)="openErreur(erreur)" class=" btn btn-secondary btn-sm">Erreurs</button>
+          </div>
         </div>
       </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-2">
       <div class="card mb-4 shadow-sm">
-        <div class="card-body">
-          <img src="../../assets/brand/de-100-600x600.png " width="300px" height="300px">
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="btn-group">
-              DE-100
-            </div>
-            <small class="text-danger">Non Actif</small>
+        <div class="card-body align-items-center">
+          <img src="../../assets/brand/de-100-600x600.png " width="200px" height="200px">
+          <div class="text-sm-left">
+            <img src="../../assets/brand/cercle-rouge-fond-transparent.png" width="10px" height="10px">
+            DE-100
           </div>
-          <a href="/machineDetails"><small class="text-muted">Voir Details</small></a>
+          <div class="d-flex justify-content-between">
+            <button type="button" (click)="open(transaction)" class="btn btn-secondary btn-sm">Transactions</button>
+            <button type="button" (click)="openErreur(erreur)" class=" btn btn-secondary btn-sm">Erreurs</button>
+          </div>
         </div>
       </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-2">
       <div class="card mb-4 shadow-sm">
-        <div class="card-body">
-          <img src="../../assets/brand/de-100-600x600.png " width="300px" height="300px">
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="btn-group">
-              DE-100
-            </div>
-            <small class="text-success">Actif</small>
+        <div class="card-body align-items-center">
+          <img src="../../assets/brand/de-100-600x600.png " width="200px" height="200px">
+          <div class="text-sm-left">
+            <img src="../../assets/brand/green.png" width="10px" height="10px">
+            DE-100
           </div>
-          <a href="/machineDetails"><small class="text-muted">Voir Details</small></a>
+          <div class="d-flex justify-content-between">
+            <button type="button" (click)="open(transaction)" class="btn btn-secondary btn-sm">Transactions</button>
+            <button type="button" (click)="openErreur(erreur)" class=" btn btn-secondary btn-sm">Erreurs</button>
+          </div>
         </div>
       </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-2">
       <div class="card mb-4 shadow-sm">
-        <div class="card-body">
-          <img src="../../assets/brand/de-100-600x600.png " width="300px" height="300px">
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="btn-group">
-              DE-100
-            </div>
-            <small class="text-danger">Non Actif</small>
+        <div class="card-body align-items-center">
+          <img src="../../assets/brand/de-100-600x600.png " width="200px" height="200px">
+          <div class="text-sm-left">
+            <img src="../../assets/brand/cercle-rouge-fond-transparent.png" width="10px" height="10px">
+            DE-100
           </div>
-          <a href="/machineDetails"><small class="text-muted">Voir Details</small></a>
+          <div class="d-flex justify-content-between">
+            <button type="button" (click)="open(transaction)" class="btn btn-secondary btn-sm">Transactions</button>
+            <button type="button" (click)="openErreur(erreur)" class=" btn btn-secondary btn-sm">Erreurs</button>
+          </div>
+        </div>
+      </div>
+    </div><div class="col-md-2">
+      <div class="card mb-4 shadow-sm">
+        <div class="card-body align-items-center">
+          <img src="../../assets/brand/de-100-600x600.png " width="200px" height="200px">
+          <div class="text-sm-left">
+            <img src="../../assets/brand/green.png" width="10px" height="10px">
+            DE-100
+          </div>
+          <div class="d-flex justify-content-between">
+            <button type="button" (click)="open(transaction)" class="btn btn-secondary btn-sm">Transactions</button>
+            <button type="button" (click)="openErreur(erreur)" class=" btn btn-secondary btn-sm">Erreurs</button>
+          </div>
         </div>
       </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-2">
       <div class="card mb-4 shadow-sm">
-        <div class="card-body">
-          <img src="../../assets/brand/de-100-600x600.png " width="300px" height="300px">
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="btn-group">
-              DE-100
-            </div>
-            <small class="text-danger">Non Actif</small>
+        <div class="card-body align-items-center">
+          <img src="../../assets/brand/de-100-600x600.png " width="200px" height="200px">
+          <div class="text-sm-left">
+            <img src="../../assets/brand/cercle-rouge-fond-transparent.png" width="10px" height="10px">
+            DE-100
           </div>
-          <a href="/machineDetails"><small class="text-muted">Voir Details</small></a>
+          <div class="d-flex justify-content-between">
+            <button type="button" (click)="open(transaction)" class="btn btn-secondary btn-sm">Transactions</button>
+            <button type="button" (click)="openErreur(erreur)" class=" btn btn-secondary btn-sm">Erreurs</button>
+          </div>
+        </div>
+      </div>
+    </div><div class="col-md-2">
+      <div class="card mb-4 shadow-sm">
+        <div class="card-body align-items-center">
+          <img src="../../assets/brand/de-100-600x600.png " width="200px" height="200px">
+          <div class="text-sm-left">
+            <img src="../../assets/brand/green.png" width="10px" height="10px">
+            DE-100
+          </div>
+          <div class="d-flex justify-content-between">
+            <button type="button" (click)="open(transaction)" class="btn btn-secondary btn-sm">Transactions</button>
+            <button type="button" (click)="openErreur(erreur)" class=" btn btn-secondary btn-sm">Erreurs</button>
+          </div>
         </div>
       </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-2">
       <div class="card mb-4 shadow-sm">
-        <div class="card-body">
-          <img src="../../assets/brand/de-100-600x600.png " width="300px" height="300px">
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="btn-group">
-              DE-100
-            </div>
-            <small class="text-danger">Non Actif</small>
+        <div class="card-body align-items-center">
+          <img src="../../assets/brand/de-100-600x600.png " width="200px" height="200px">
+          <div class="text-sm-left">
+            <img src="../../assets/brand/cercle-rouge-fond-transparent.png" width="10px" height="10px">
+            DE-100
           </div>
-          <a href="/machineDetails"><small class="text-muted">Voir Details</small></a>
+          <div class="d-flex justify-content-between">
+            <button type="button" (click)="open(transaction)" class="btn btn-secondary btn-sm">Transactions</button>
+            <button type="button" (click)="openErreur(erreur)" class=" btn btn-secondary btn-sm">Erreurs</button>
+          </div>
+        </div>
+      </div>
+    </div><div class="col-md-2">
+      <div class="card mb-4 shadow-sm">
+        <div class="card-body align-items-center">
+          <img src="../../assets/brand/de-100-600x600.png " width="200px" height="200px">
+          <div class="text-sm-left">
+            <img src="../../assets/brand/green.png" width="10px" height="10px">
+            DE-100
+          </div>
+          <div class="d-flex justify-content-between">
+            <button type="button" (click)="open(transaction)" class="btn btn-secondary btn-sm">Transactions</button>
+            <button type="button" (click)="openErreur(erreur)" class=" btn btn-secondary btn-sm">Erreurs</button>
+          </div>
         </div>
       </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-2">
       <div class="card mb-4 shadow-sm">
-        <div class="card-body">
-          <img src="../../assets/brand/de-100-600x600.png " width="300px" height="300px">
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="btn-group">
-              DE-100
-            </div>
-            <small class="text-success">Actif</small>
+        <div class="card-body align-items-center">
+          <img src="../../assets/brand/de-100-600x600.png " width="200px" height="200px">
+          <div class="text-sm-left">
+            <img src="../../assets/brand/cercle-rouge-fond-transparent.png" width="10px" height="10px">
+            DE-100
           </div>
-          <a href="/machineDetails"><small class="text-muted">Voir Details</small></a>
+          <div class="d-flex justify-content-between">
+            <button type="button" (click)="open(transaction)" class="btn btn-secondary btn-sm">Transactions</button>
+            <button type="button" (click)="openErreur(erreur)" class=" btn btn-secondary btn-sm">Erreurs</button>
+          </div>
+        </div>
+      </div>
+    </div><div class="col-md-2">
+      <div class="card mb-4 shadow-sm">
+        <div class="card-body align-items-center">
+          <img src="../../assets/brand/de-100-600x600.png " width="200px" height="200px">
+          <div class="text-sm-left">
+            <img src="../../assets/brand/green.png" width="10px" height="10px">
+            DE-100
+          </div>
+          <div class="d-flex justify-content-between">
+            <button type="button" (click)="open(transaction)" class="btn btn-secondary btn-sm">Transactions</button>
+            <button type="button" (click)="openErreur(erreur)" class=" btn btn-secondary btn-sm">Erreurs</button>
+          </div>
         </div>
       </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-2">
       <div class="card mb-4 shadow-sm">
-        <div class="card-body">
-          <img src="../../assets/brand/de-100-600x600.png " width="300px" height="300px">
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="btn-group">
-              DE-100
-            </div>
-            <small class="text-success">Actif</small>
+        <div class="card-body align-items-center">
+          <img src="../../assets/brand/de-100-600x600.png " width="200px" height="200px">
+          <div class="text-sm-left">
+            <img src="../../assets/brand/cercle-rouge-fond-transparent.png" width="10px" height="10px">
+            DE-100
           </div>
-          <a href="/machineDetails"><small class="text-muted">Voir Details</small></a>
+          <div class="d-flex justify-content-between">
+            <button type="button" (click)="open(transaction)" class="btn btn-secondary btn-sm">Transactions</button>
+            <button type="button" (click)="openErreur(erreur)" class=" btn btn-secondary btn-sm">Erreurs</button>
+          </div>
+        </div>
+      </div>
+    </div><div class="col-md-2">
+      <div class="card mb-4 shadow-sm">
+        <div class="card-body align-items-center">
+          <img src="../../assets/brand/de-100-600x600.png " width="200px" height="200px">
+          <div class="text-sm-left">
+            <img src="../../assets/brand/green.png" width="10px" height="10px">
+            DE-100
+          </div>
+          <div class="d-flex justify-content-between">
+            <button type="button" (click)="open(transaction)" class="btn btn-secondary btn-sm">Transactions</button>
+            <button type="button" (click)="openErreur(erreur)" class=" btn btn-secondary btn-sm">Erreurs</button>
+          </div>
         </div>
       </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-2">
       <div class="card mb-4 shadow-sm">
-        <div class="card-body">
-          <img src="../../assets/brand/de-100-600x600.png " width="300px" height="300px">
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="btn-group">
-              DE-100
-            </div>
-            <small class="text-danger">Non Actif</small>
+        <div class="card-body align-items-center">
+          <img src="../../assets/brand/de-100-600x600.png " width="200px" height="200px">
+          <div class="text-sm-left">
+            <img src="../../assets/brand/cercle-rouge-fond-transparent.png" width="10px" height="10px">
+            DE-100
           </div>
-          <a href="/machineDetails"><small class="text-muted">Voir Details</small></a>
+          <div class="d-flex justify-content-between">
+            <button type="button" (click)="open(transaction)" class="btn btn-secondary btn-sm">Transactions</button>
+            <button type="button" (click)="openErreur(erreur)" class=" btn btn-secondary btn-sm">Erreurs</button>
+          </div>
+        </div>
+      </div>
+    </div><div class="col-md-2">
+      <div class="card mb-4 shadow-sm">
+        <div class="card-body align-items-center">
+          <img src="../../assets/brand/de-100-600x600.png " width="200px" height="200px">
+          <div class="text-sm-left">
+            <img src="../../assets/brand/green.png" width="10px" height="10px">
+            DE-100
+          </div>
+          <div class="d-flex justify-content-between">
+            <button type="button" (click)="open(transaction)" class="btn btn-secondary btn-sm">Transactions</button>
+            <button type="button" (click)="openErreur(erreur)" class=" btn btn-secondary btn-sm">Erreurs</button>
+          </div>
         </div>
       </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-2">
       <div class="card mb-4 shadow-sm">
-        <div class="card-body">
-          <img src="../../assets/brand/de-100-600x600.png " width="300px" height="300px">
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="btn-group">
-              DE-100
-            </div>
-            <small class="text-success">Actif</small>
+        <div class="card-body align-items-center">
+          <img src="../../assets/brand/de-100-600x600.png " width="200px" height="200px">
+          <div class="text-sm-left">
+            <img src="../../assets/brand/cercle-rouge-fond-transparent.png" width="10px" height="10px">
+            DE-100
           </div>
-          <a href="/machineDetails"><small class="text-muted">Voir Details</small></a>
+          <div class="d-flex justify-content-between">
+            <button type="button" (click)="open(transaction)" class="btn btn-secondary btn-sm">Transactions</button>
+            <button type="button" (click)="openErreur(erreur)" class=" btn btn-secondary btn-sm">Erreurs</button>
+          </div>
+        </div>
+      </div>
+    </div><div class="col-md-2">
+      <div class="card mb-4 shadow-sm">
+        <div class="card-body align-items-center">
+          <img src="../../assets/brand/de-100-600x600.png " width="200px" height="200px">
+          <div class="text-sm-left">
+            <img src="../../assets/brand/green.png" width="10px" height="10px">
+            DE-100
+          </div>
+          <div class="d-flex justify-content-between">
+            <button type="button" (click)="open(transaction)" class="btn btn-secondary btn-sm">Transactions</button>
+            <button type="button" (click)="openErreur(erreur)" class=" btn btn-secondary btn-sm">Erreurs</button>
+          </div>
         </div>
       </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-2">
       <div class="card mb-4 shadow-sm">
-        <div class="card-body">
-          <img src="../../assets/brand/de-100-600x600.png " width="300px" height="300px">
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="btn-group">
-              DE-100
-            </div>
-            <small class="text-success">Actif</small>
+        <div class="card-body align-items-center">
+          <img src="../../assets/brand/de-100-600x600.png " width="200px" height="200px">
+          <div class="text-sm-left">
+            <img src="../../assets/brand/cercle-rouge-fond-transparent.png" width="10px" height="10px">
+            DE-100
           </div>
-          <a href="/machineDetails"><small class="text-muted">Voir Details</small></a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="card mb-4 shadow-sm">
-        <div class="card-body">
-          <img src="../../assets/brand/de-100-600x600.png " width="300px" height="300px">
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="btn-group">
-              DE-100
-            </div>
-            <small class="text-danger">Non Actif</small>
+          <div class="d-flex justify-content-between">
+            <button type="button" (click)="open(transaction)" class="btn btn-secondary btn-sm">Transactions</button>
+            <button type="button" (click)="openErreur(erreur)" class=" btn btn-secondary btn-sm">Erreurs</button>
           </div>
-          <a href="/machineDetails"><small class="text-muted">Voir Details</small></a>
         </div>
       </div>
     </div>

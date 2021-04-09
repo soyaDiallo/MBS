@@ -1,0 +1,35 @@
+<app-menu></app-menu>
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Modification de l'employé {{user.nom}}</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+      <div class="btn-group mr-2">
+        <a href="dashboard" type="button" class="btn btn-sm btn-outline-secondary">Accueil</a>
+        <a href="listUser" type="button" class="btn btn-sm btn-outline-secondary">Liste des employés</a>
+      </div>
+    </div>
+  </div>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Nom</label>
+      <input type="text" class="form-control" id="name" required [(ngModel)]="user.nom" name="name"  placeholder="Entrer le nom" > 
+    </div>
+    <div class="form-group">
+      <label for="prenom">Prenom </label>
+      <input type="text" class="form-control" id="prenom" required [(ngModel)]="user.prenom" name="prenom"  aria-describedby="emailHelp" placeholder="Entrer le prenom" >
+    </div>
+    <div class="form-group">
+      <label for="login">Login</label>
+      <input type="text" class="form-control" id="login" required [(ngModel)]="user.login" name="login"  placeholder="Entrer le login" >
+    </div>
+    <div class="form-group">
+      <label for="type">Type</label>
+      <input type="text" class="form-control" id="type" required [(ngModel)]="user.type" name="type"  placeholder="Entrer le type" >
+    </div>
+    <div class="form-group">
+        <label for="password">Mot de passe</label>
+        <input type="password" class="form-control" id="password" required [(ngModel)]="user.password" name="password"  placeholder="Entrer le mot de passe" >
+      </div>
+    <button type="submit" class="btn btn-primary">Ajouter</button>
+  </form>
+</main>
