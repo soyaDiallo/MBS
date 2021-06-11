@@ -30,6 +30,11 @@
                         <label for="adresse"><b>Type : </b></label>
                         {{ user.type }}
                     </div>
+                    <div class="form-group" *ngIf="client">
+                        <label for="adresse"><b>Entreprise : </b></label>
+                        {{ client.name }}
+                    </div>
+                   
                 </div>
             </div>
         </div>

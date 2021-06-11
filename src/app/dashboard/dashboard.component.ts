@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { Machine } from '../entities/machine';
+import { Transaction } from '../entities/transaction';
+import { MachineService } from '../services/machine-service';
+import { TransactionService } from '../services/transaction-service';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,9 +13,17 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 })
 export class DashboardComponent implements OnInit {
   closeResult = '';
-  constructor(private modalService: NgbModal, private router:Router) { }
+  machines:Machine[];
+  transactions:Transaction[];
+  constructor(private modalService: NgbModal, private router:Router,private machineService:MachineService, private transactionService:TransactionService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.loadData();
+  }
+
+  loadData(){
+    this.machineService.getAllMachine().subscribe((data=>{this.machines=data['_embedded']['machines'];}));
+    this.transactionService.getAllTransaction().subscribe((data=>{this.transactions=data['_embedded']['transactionses'];}));
   }
   
   open(transaction) {

@@ -6,28 +6,28 @@ import { Observable } from "rxjs";
 })
 export class TransactionService 
 {
-    private url = 'http://localhost:8080';
+    private url = 'http://10.13.128.168:8080';
     constructor(private http: HttpClient) { }
 
     
     getAllTransaction(): Observable<any> {  
-        return this.http.get(`${this.url}/transactions`);
+        return this.http.get(`${this.url}/transactionses`);
     }
 
     deleteTransaction(id: number): Observable<any> {
-        return this.http.delete(`${this.url}/transactions/${id}`, { responseType: 'text' });
+        return this.http.delete(`${this.url}/transactionses/${id}`, { responseType: 'text' });
     }
 
     getTransaction(id: number): Observable<any> {
-        return this.http.get(`${this.url}/transactions/${id}`,);
+        return this.http.get(`${this.url}/transactionses/${id}`);
     }
 
     createTransaction(client: Object): Observable<Object> {
-        return this.http.post(`${this.url}/transactions`, client);
+        return this.http.post(`${this.url}/transactionses`, client);
       }
     
     updateTransaction(id: number, value: any): Observable<Object> {
         console.log(value);
-        return this.http.put(`${this.url}/transactions/${id}`, value);
+        return this.http.put(`${this.url}/transactionses/${id}`, value);
       }
 }

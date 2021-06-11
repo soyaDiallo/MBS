@@ -6,7 +6,7 @@ import { Observable } from "rxjs";
 })
 export class MachineService
 {
-    private url = 'http://localhost:8080';
+    private url = 'http://10.13.128.168:8080';
     constructor(private http: HttpClient) { }
 
     
@@ -19,7 +19,7 @@ export class MachineService
     }
 
     getMachine(id: number): Observable<any> {
-        return this.http.get(`${this.url}/machines/${id}`,);
+        return this.http.get(`${this.url}/machines/${id}`);
     }
 
     createMachine(client: Object): Observable<Object> {

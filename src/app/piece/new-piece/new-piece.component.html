@@ -12,15 +12,28 @@
   <form (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="num">Numero</label>
-      <input type="text" class="form-control" id="num" required [(ngModel)]="piece.num" name="num"  placeholder="Entrer le numero" > 
+      <input type="text" class="form-control" id="num" required [(ngModel)]="piece.num" name="num"
+        placeholder="Entrer le numero">
     </div>
     <div class="form-group">
       <label for="designation">Designation </label>
-      <input type="text" class="form-control" id="designation" required [(ngModel)]="piece.designation" name="designation" placeholder="Entrer la designation" >
+      <input type="text" class="form-control" id="designation" required [(ngModel)]="piece.designation"
+        name="designation" placeholder="Entrer la designation">
     </div>
     <div class="form-group">
       <label for="date_arrivee">Date d'arrivée</label>
-      <input type="date" class="form-control" id="date_arrivee" required [(ngModel)]="piece.date_arrivee" name="date_arrivee"  placeholder="Entrer la date" >
+      <input type="date" class="form-control" id="date_arrivee" required [(ngModel)]="piece.date_arrivee"
+        name="date_arrivee" placeholder="Entrer la date">
+    </div>
+    <div class="form-group">
+      <mat-form-field appearance="fill">
+        <mat-label>Machines</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let machine of machines" required [(ngModel)]="piece.machine" [value]="machine.designation">
+            {{machine.designation}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
 
     <button type="submit" class="btn btn-primary">Ajouter</button>

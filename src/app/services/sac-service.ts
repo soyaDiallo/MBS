@@ -6,7 +6,7 @@ import { Observable } from "rxjs";
 })
 export class SacService 
 {
-    private url = 'http://localhost:8080';
+    private url = 'http://10.13.128.168:8080';
     constructor(private http: HttpClient) { }
 
     
@@ -19,7 +19,7 @@ export class SacService
     }
 
     getSac(id: number): Observable<any> {
-        return this.http.get(`${this.url}/sacs/${id}`,);
+        return this.http.get(`${this.url}/sacs/${id}`);
     }
 
     createSac(client: Object): Observable<Object> {

@@ -6,7 +6,7 @@ import { Observable } from "rxjs";
 })
 export class ErreurService 
 {
-    private url = 'http://localhost:8080';
+    private url = 'http://10.13.128.168:8080';
     constructor(private http: HttpClient) { }
 
 
@@ -20,7 +20,7 @@ export class ErreurService
     }
 
     getErreur(id: number): Observable<any> {
-        return this.http.get(`${this.url}/erreurs/${id}`,);
+        return this.http.get(`${this.url}/erreurs/${id}`);
     }
 
     createErreur(client: Object): Observable<Object> {

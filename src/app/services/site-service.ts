@@ -6,7 +6,7 @@ import { Observable } from "rxjs";
 })
 export class SiteService
 {
-    private url = 'http://localhost:8080';
+    private url = 'http://10.13.128.168:8080';
     constructor(private http: HttpClient) { }
 
     
@@ -19,7 +19,11 @@ export class SiteService
     }
 
     getSite(id: number): Observable<any> {
-        return this.http.get(`${this.url}/sites/${id}`,);
+        return this.http.get(`${this.url}/sites/${id}`);
+    }
+
+    getSiteClient(id: number): Observable<any> {
+        return this.http.get(`${this.url}/sites/${id}/client`);
     }
 
     createSite(client: Object): Observable<Object> {

@@ -22,75 +22,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>001</td>
-          <td>Chebihi</td>
-          <td>depot manuel</td>
-          <td>15000</td>
-          <td>20/02/2021</td>
-        </tr>
-        <tr>
-          <td>001</td>
-          <td>Chebihi</td>
-          <td>depot manuel</td>
-          <td>15000</td>
-          <td>20/02/2021</td>
-        </tr>
-        <tr>
-          <td>002</td>
-          <td>Chebihi</td>
-          <td>collection</td>
-          <td>15000</td>
-          <td>20/02/2021</td>
-        </tr>
-        <tr>
-          <td>003</td>
-          <td>Chebihi</td>
-          <td>depot </td>
-          <td>15000</td>
-          <td>20/02/2021</td>
-        </tr>
-        <tr>
-          <td>004</td>
-          <td>Chebihi</td>
-          <td>depot manuel</td>
-          <td>15000</td>
-          <td>20/02/2021</td>
-        </tr>
-        <tr>
-          <td>001</td>
-          <td>Chebihi</td>
-          <td>depot manuel</td>
-          <td>15000</td>
-          <td>20/02/2021</td>
-        </tr>
-        <tr>
-          <td>001</td>
-          <td>Chebihi</td>
-          <td>depot manuel</td>
-          <td>15000</td>
-          <td>20/02/2021</td>
-        </tr>
-        <tr>
-          <td>002</td>
-          <td>Chebihi</td>
-          <td>collection</td>
-          <td>15000</td>
-          <td>20/02/2021</td>
-        </tr>
-        <tr>
-          <td>003</td>
-          <td>Chebihi</td>
-          <td>depot </td>
-          <td>15000</td>
-          <td>20/02/2021</td>
-        </tr>
-        <tr>
-          <td>004</td>
-          <td>Chebihi</td>
-          <td>depot manuel</td>
-          <td>15000</td>
-          <td>20/02/2021</td>
+        <tr  *ngFor="let transaction of transactions">
+          <td>{{transaction.num}}</td>
+          <td>{{transaction.status}}</td>
+          <td>{{transaction.type}}</td>
+          <td>{{transaction.montant}}</td>
+          <td>{{transaction.date_transation}}</td>
         </tr>
       </tbody>
     </table>

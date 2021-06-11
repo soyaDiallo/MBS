@@ -6,7 +6,7 @@ import { Observable } from "rxjs";
     providedIn: 'root'
 })
 export class ClientService {
-    private url = 'http://localhost:8080';
+    private url = 'http://10.13.128.168:8080';
     constructor(private http: HttpClient) { }
 
     
@@ -19,7 +19,7 @@ export class ClientService {
     }
 
     getClient(id: number): Observable<any> {
-        return this.http.get(`${this.url}/clients/${id}`,);
+        return this.http.get(`${this.url}/clients/${id}`);
     }
 
     createClient(client: Object): Observable<Object> {

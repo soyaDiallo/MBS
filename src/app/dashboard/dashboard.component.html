@@ -20,37 +20,12 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>001</td>
-              <td>Chebihi</td>
-              <td>depot manuel</td>
-              <td>15000</td>
-              <td>20/02/2021</td>
-            </tr>
-            <tr>
-              <td>001</td>
-              <td>Chebihi</td>
-              <td>depot manuel</td>
-              <td>15000</td>
-              <td>20/02/2021</td>
-            </tr> <tr>
-              <td>002</td>
-              <td>Chebihi</td>
-              <td>collection</td>
-              <td>15000</td>
-              <td>20/02/2021</td>
-            </tr> <tr>
-              <td>003</td>
-              <td>Chebihi</td>
-              <td>depot </td>
-              <td>15000</td>
-              <td>20/02/2021</td>
-            </tr> <tr>
-              <td>004</td>
-              <td>Chebihi</td>
-              <td>depot manuel</td>
-              <td>15000</td>
-              <td>20/02/2021</td>
+            <tr  *ngFor="let transaction of transactions">
+              <td>{{transaction.num}}</td>
+              <td>{{transaction.status}}</td>
+              <td>{{transaction.type}}</td>
+              <td>{{transaction.montant}}</td>
+              <td>{{transaction.date_transation}}</td>
             </tr>
           </tbody>
         </table>
@@ -88,31 +63,38 @@
               <td>error</td>
               <td>message ............................</td>
               <td>20/02/2021</td>
-            </tr><tr>
+            </tr>
+            <tr>
               <td>warning</td>
               <td>message ............................</td>
               <td>20/02/2021</td>
-            </tr><tr>
+            </tr>
+            <tr>
               <td>error</td>
               <td>message ............................</td>
               <td>20/02/2021</td>
-            </tr><tr>
+            </tr>
+            <tr>
               <td>error</td>
               <td>message ............................</td>
               <td>20/02/2021</td>
-            </tr><tr>
+            </tr>
+            <tr>
               <td>warning</td>
               <td>message ............................</td>
               <td>20/02/2021</td>
-            </tr><tr>
+            </tr>
+            <tr>
               <td>error</td>
               <td>message ............................</td>
               <td>20/02/2021</td>
-            </tr><tr>
+            </tr>
+            <tr>
               <td>warning</td>
               <td>message ............................</td>
               <td>20/02/2021</td>
-            </tr><tr>
+            </tr>
+            <tr>
               <td>warning</td>
               <td>message ............................</td>
               <td>20/02/2021</td>
@@ -125,262 +107,14 @@
       <button type="button" class="btn btn-outline-dark" (click)="detailErreur()">Voir plus</button>
     </div>
   </ng-template>
-  <div class="row">
+  <div class="row"  *ngFor="let machine of machines">
     <div class="col-md-2">
       <div class="card mb-4 shadow-sm">
         <div class="card-body align-items-center">
           <img src="../../assets/brand/de-100-600x600.png " width="200px" height="200px">
           <div class="text-sm-left">
-            <img src="../../assets/brand/green.png" width="10px" height="10px">
-            DE-100
-          </div>
-          <div class="d-flex justify-content-between">
-            <button type="button" (click)="open(transaction)" class="btn btn-secondary btn-sm">Transactions</button>
-            <button type="button" (click)="openErreur(erreur)" class=" btn btn-secondary btn-sm">Erreurs</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-2">
-      <div class="card mb-4 shadow-sm">
-        <div class="card-body align-items-center">
-          <img src="../../assets/brand/de-100-600x600.png " width="200px" height="200px">
-          <div class="text-sm-left">
-            <img src="../../assets/brand/cercle-rouge-fond-transparent.png" width="10px" height="10px">
-            DE-100
-          </div>
-          <div class="d-flex justify-content-between">
-            <button type="button" (click)="open(transaction)" class="btn btn-secondary btn-sm">Transactions</button>
-            <button type="button" (click)="openErreur(erreur)" class=" btn btn-secondary btn-sm">Erreurs</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-2">
-      <div class="card mb-4 shadow-sm">
-        <div class="card-body align-items-center">
-          <img src="../../assets/brand/de-100-600x600.png " width="200px" height="200px">
-          <div class="text-sm-left">
-            <img src="../../assets/brand/green.png" width="10px" height="10px">
-            DE-100
-          </div>
-          <div class="d-flex justify-content-between">
-            <button type="button" (click)="open(transaction)" class="btn btn-secondary btn-sm">Transactions</button>
-            <button type="button" (click)="openErreur(erreur)" class=" btn btn-secondary btn-sm">Erreurs</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-2">
-      <div class="card mb-4 shadow-sm">
-        <div class="card-body align-items-center">
-          <img src="../../assets/brand/de-100-600x600.png " width="200px" height="200px">
-          <div class="text-sm-left">
-            <img src="../../assets/brand/cercle-rouge-fond-transparent.png" width="10px" height="10px">
-            DE-100
-          </div>
-          <div class="d-flex justify-content-between">
-            <button type="button" (click)="open(transaction)" class="btn btn-secondary btn-sm">Transactions</button>
-            <button type="button" (click)="openErreur(erreur)" class=" btn btn-secondary btn-sm">Erreurs</button>
-          </div>
-        </div>
-      </div>
-    </div><div class="col-md-2">
-      <div class="card mb-4 shadow-sm">
-        <div class="card-body align-items-center">
-          <img src="../../assets/brand/de-100-600x600.png " width="200px" height="200px">
-          <div class="text-sm-left">
-            <img src="../../assets/brand/green.png" width="10px" height="10px">
-            DE-100
-          </div>
-          <div class="d-flex justify-content-between">
-            <button type="button" (click)="open(transaction)" class="btn btn-secondary btn-sm">Transactions</button>
-            <button type="button" (click)="openErreur(erreur)" class=" btn btn-secondary btn-sm">Erreurs</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-2">
-      <div class="card mb-4 shadow-sm">
-        <div class="card-body align-items-center">
-          <img src="../../assets/brand/de-100-600x600.png " width="200px" height="200px">
-          <div class="text-sm-left">
-            <img src="../../assets/brand/cercle-rouge-fond-transparent.png" width="10px" height="10px">
-            DE-100
-          </div>
-          <div class="d-flex justify-content-between">
-            <button type="button" (click)="open(transaction)" class="btn btn-secondary btn-sm">Transactions</button>
-            <button type="button" (click)="openErreur(erreur)" class=" btn btn-secondary btn-sm">Erreurs</button>
-          </div>
-        </div>
-      </div>
-    </div><div class="col-md-2">
-      <div class="card mb-4 shadow-sm">
-        <div class="card-body align-items-center">
-          <img src="../../assets/brand/de-100-600x600.png " width="200px" height="200px">
-          <div class="text-sm-left">
-            <img src="../../assets/brand/green.png" width="10px" height="10px">
-            DE-100
-          </div>
-          <div class="d-flex justify-content-between">
-            <button type="button" (click)="open(transaction)" class="btn btn-secondary btn-sm">Transactions</button>
-            <button type="button" (click)="openErreur(erreur)" class=" btn btn-secondary btn-sm">Erreurs</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-2">
-      <div class="card mb-4 shadow-sm">
-        <div class="card-body align-items-center">
-          <img src="../../assets/brand/de-100-600x600.png " width="200px" height="200px">
-          <div class="text-sm-left">
-            <img src="../../assets/brand/cercle-rouge-fond-transparent.png" width="10px" height="10px">
-            DE-100
-          </div>
-          <div class="d-flex justify-content-between">
-            <button type="button" (click)="open(transaction)" class="btn btn-secondary btn-sm">Transactions</button>
-            <button type="button" (click)="openErreur(erreur)" class=" btn btn-secondary btn-sm">Erreurs</button>
-          </div>
-        </div>
-      </div>
-    </div><div class="col-md-2">
-      <div class="card mb-4 shadow-sm">
-        <div class="card-body align-items-center">
-          <img src="../../assets/brand/de-100-600x600.png " width="200px" height="200px">
-          <div class="text-sm-left">
-            <img src="../../assets/brand/green.png" width="10px" height="10px">
-            DE-100
-          </div>
-          <div class="d-flex justify-content-between">
-            <button type="button" (click)="open(transaction)" class="btn btn-secondary btn-sm">Transactions</button>
-            <button type="button" (click)="openErreur(erreur)" class=" btn btn-secondary btn-sm">Erreurs</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-2">
-      <div class="card mb-4 shadow-sm">
-        <div class="card-body align-items-center">
-          <img src="../../assets/brand/de-100-600x600.png " width="200px" height="200px">
-          <div class="text-sm-left">
-            <img src="../../assets/brand/cercle-rouge-fond-transparent.png" width="10px" height="10px">
-            DE-100
-          </div>
-          <div class="d-flex justify-content-between">
-            <button type="button" (click)="open(transaction)" class="btn btn-secondary btn-sm">Transactions</button>
-            <button type="button" (click)="openErreur(erreur)" class=" btn btn-secondary btn-sm">Erreurs</button>
-          </div>
-        </div>
-      </div>
-    </div><div class="col-md-2">
-      <div class="card mb-4 shadow-sm">
-        <div class="card-body align-items-center">
-          <img src="../../assets/brand/de-100-600x600.png " width="200px" height="200px">
-          <div class="text-sm-left">
-            <img src="../../assets/brand/green.png" width="10px" height="10px">
-            DE-100
-          </div>
-          <div class="d-flex justify-content-between">
-            <button type="button" (click)="open(transaction)" class="btn btn-secondary btn-sm">Transactions</button>
-            <button type="button" (click)="openErreur(erreur)" class=" btn btn-secondary btn-sm">Erreurs</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-2">
-      <div class="card mb-4 shadow-sm">
-        <div class="card-body align-items-center">
-          <img src="../../assets/brand/de-100-600x600.png " width="200px" height="200px">
-          <div class="text-sm-left">
-            <img src="../../assets/brand/cercle-rouge-fond-transparent.png" width="10px" height="10px">
-            DE-100
-          </div>
-          <div class="d-flex justify-content-between">
-            <button type="button" (click)="open(transaction)" class="btn btn-secondary btn-sm">Transactions</button>
-            <button type="button" (click)="openErreur(erreur)" class=" btn btn-secondary btn-sm">Erreurs</button>
-          </div>
-        </div>
-      </div>
-    </div><div class="col-md-2">
-      <div class="card mb-4 shadow-sm">
-        <div class="card-body align-items-center">
-          <img src="../../assets/brand/de-100-600x600.png " width="200px" height="200px">
-          <div class="text-sm-left">
-            <img src="../../assets/brand/green.png" width="10px" height="10px">
-            DE-100
-          </div>
-          <div class="d-flex justify-content-between">
-            <button type="button" (click)="open(transaction)" class="btn btn-secondary btn-sm">Transactions</button>
-            <button type="button" (click)="openErreur(erreur)" class=" btn btn-secondary btn-sm">Erreurs</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-2">
-      <div class="card mb-4 shadow-sm">
-        <div class="card-body align-items-center">
-          <img src="../../assets/brand/de-100-600x600.png " width="200px" height="200px">
-          <div class="text-sm-left">
-            <img src="../../assets/brand/cercle-rouge-fond-transparent.png" width="10px" height="10px">
-            DE-100
-          </div>
-          <div class="d-flex justify-content-between">
-            <button type="button" (click)="open(transaction)" class="btn btn-secondary btn-sm">Transactions</button>
-            <button type="button" (click)="openErreur(erreur)" class=" btn btn-secondary btn-sm">Erreurs</button>
-          </div>
-        </div>
-      </div>
-    </div><div class="col-md-2">
-      <div class="card mb-4 shadow-sm">
-        <div class="card-body align-items-center">
-          <img src="../../assets/brand/de-100-600x600.png " width="200px" height="200px">
-          <div class="text-sm-left">
-            <img src="../../assets/brand/green.png" width="10px" height="10px">
-            DE-100
-          </div>
-          <div class="d-flex justify-content-between">
-            <button type="button" (click)="open(transaction)" class="btn btn-secondary btn-sm">Transactions</button>
-            <button type="button" (click)="openErreur(erreur)" class=" btn btn-secondary btn-sm">Erreurs</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-2">
-      <div class="card mb-4 shadow-sm">
-        <div class="card-body align-items-center">
-          <img src="../../assets/brand/de-100-600x600.png " width="200px" height="200px">
-          <div class="text-sm-left">
-            <img src="../../assets/brand/cercle-rouge-fond-transparent.png" width="10px" height="10px">
-            DE-100
-          </div>
-          <div class="d-flex justify-content-between">
-            <button type="button" (click)="open(transaction)" class="btn btn-secondary btn-sm">Transactions</button>
-            <button type="button" (click)="openErreur(erreur)" class=" btn btn-secondary btn-sm">Erreurs</button>
-          </div>
-        </div>
-      </div>
-    </div><div class="col-md-2">
-      <div class="card mb-4 shadow-sm">
-        <div class="card-body align-items-center">
-          <img src="../../assets/brand/de-100-600x600.png " width="200px" height="200px">
-          <div class="text-sm-left">
-            <img src="../../assets/brand/green.png" width="10px" height="10px">
-            DE-100
-          </div>
-          <div class="d-flex justify-content-between">
-            <button type="button" (click)="open(transaction)" class="btn btn-secondary btn-sm">Transactions</button>
-            <button type="button" (click)="openErreur(erreur)" class=" btn btn-secondary btn-sm">Erreurs</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-2">
-      <div class="card mb-4 shadow-sm">
-        <div class="card-body align-items-center">
-          <img src="../../assets/brand/de-100-600x600.png " width="200px" height="200px">
-          <div class="text-sm-left">
-            <img src="../../assets/brand/cercle-rouge-fond-transparent.png" width="10px" height="10px">
-            DE-100
+            <img  src="../../assets/brand/green.png" width="10px" height="10px">
+            {{machine.designation}}
           </div>
           <div class="d-flex justify-content-between">
             <button type="button" (click)="open(transaction)" class="btn btn-secondary btn-sm">Transactions</button>
