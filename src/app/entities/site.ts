@@ -4,5 +4,5 @@ export class Site
     nom:String;
     adresse:String;
     ville:String;
-    paye:String;
+    pays:String;
 }

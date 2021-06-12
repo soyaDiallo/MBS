@@ -13,7 +13,7 @@ export class SiteFilterPipe implements PipeTransform {
     }
     return sites.filter(site=>
       site.nom.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()) ||
-      site.paye.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()) ||
+      site.pays.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()) ||
       site.ville.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()) ||
       site.adresse.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase())
       );
