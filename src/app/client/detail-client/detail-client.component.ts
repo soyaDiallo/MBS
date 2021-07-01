@@ -16,8 +16,8 @@ export class DetailClientComponent implements OnInit {
     private clientService: ClientService) { }
 
   ngOnInit(): void {
+    this.client=new Client();
     this.id = this.route.snapshot.params['id'];
-
     this.clientService.getClient(this.id)
       .subscribe(data => {
         console.log(data)

@@ -12,10 +12,9 @@ export class TransactionFilterPipe implements PipeTransform {
       return transactions;
     }
     return transactions.filter(transaction=>
-      transaction.num.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()) ||
       transaction.status.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()) ||
       transaction.type.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()) ||
-      transaction.date_transation.toString().toLocaleLowerCase().includes(searchValue.toLocaleLowerCase())
+      transaction.date_transaction.toString().toLocaleLowerCase().includes(searchValue.toLocaleLowerCase())
       );
   }
 

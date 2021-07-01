@@ -1,6 +1,7 @@
 export class Sac 
 {
     id:number;
-    num:String;
+    num:string;
     capacite:number;
+    valeur:number;
 }

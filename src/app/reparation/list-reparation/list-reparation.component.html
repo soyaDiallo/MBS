@@ -4,8 +4,8 @@
     <h1 class="h2">Liste des repartions</h1>
     <div class="btn-toolbar mb-2 mb-md-0">
       <div class="btn-group mr-2">
-        <a href="dashboard" type="button" class="btn btn-sm btn-outline-secondary">Accueil</a>
-        <a href="newReparation" type="button" class="btn btn-sm btn-outline-secondary">Nouvelle reparation</a>
+        <a [routerLink]="['/dashboardSite']" routerLinkActive="router-link-active"  type="button" class="btn btn-sm btn-outline-secondary">Accueil</a>
+        <a [routerLink]="['/newReparation']" routerLinkActive="router-link-active"  type="button" class="btn btn-sm btn-outline-secondary">Nouvelle reparation</a>
       </div>
     </div>
   </div>
@@ -16,17 +16,17 @@
     <table class="table table-striped table-sm">
       <thead>
         <tr>
-          <th>Num</th>
           <th>Motif</th>
           <th>Date de reparation</th>
+          <th>Machine</th>
           <th>Action</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let reparation of reparations | reparationFilter:searchValue">
-          <td>{{reparation.num}}</td>
           <td>{{reparation.motif}}</td>
           <td>{{reparation.date_reparation | date:'dd/MM/yyyy'}}</td>
+          <td>{{reparation.machine}}</td>
           <td>
             <button (click)="detailReparation(reparation.id)" class="btn btn-warning btn-sm">Detail</button>
             <button (click)="updateReparation(reparation.id)" class="btn btn-success btn-sm">Modifier</button>

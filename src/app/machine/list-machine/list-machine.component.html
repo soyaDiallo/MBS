@@ -4,8 +4,9 @@
     <h1 class="h2">liste des machines</h1>
     <div class="btn-toolbar mb-2 mb-md-0">
       <div class="btn-group mr-2">
-        <a href="dashboard" type="button" class="btn btn-sm btn-outline-secondary">Accueil</a>
-        <a href="newMachine" type="button" class="btn btn-sm btn-outline-secondary">Nouvelle Machine</a>
+        <a [routerLink]="['/dashboardSite']" routerLinkActive="router-link-active" type="button"
+          class="btn btn-sm btn-outline-secondary">Accueil</a>
+        <a [routerLink]="['/newMachine']" routerLinkActive="router-link-active"  type="button" class="btn btn-sm btn-outline-secondary">Nouvelle Machine</a>
       </div>
     </div>
   </div>
@@ -17,7 +18,6 @@
       <thead>
         <tr>
           <th>Num</th>
-          <th>Designation</th>
           <th>Statut</th>
           <th>Date d'arrivée</th>
           <th>Action</th>
@@ -26,7 +26,6 @@
       <tbody>
         <tr *ngFor="let machine of machines | machineFilter:searchValue ">
           <td>{{machine.num}}</td>
-          <td>{{machine.designation}}</td>
           <td>{{machine.status}}</td>
           <td>{{machine.date_arrivee | date: 'dd/MM/yyyy'}}</td>
           <td>

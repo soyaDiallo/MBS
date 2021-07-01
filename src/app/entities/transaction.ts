@@ -1,9 +1,10 @@
+import { Employe } from './employe';
 export class Transaction 
 {
     id:number;
-    num:String;
     montant:number;
-    date_transation:Date;
-    type:String;
-    status:String;
+    date_transaction:Date;
+    type:string;
+    status:string;
+    employe:string;
 }

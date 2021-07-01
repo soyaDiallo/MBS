@@ -13,7 +13,6 @@ export class MachineFilterPipe implements PipeTransform {
     }
     return machines.filter(machine=>
       machine.num.toString().toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()) ||
-      machine.designation.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()) ||
       machine.status.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()) ||
       machine.date_arrivee.toString().toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()) 
       );

@@ -9,7 +9,18 @@ export class TransactionService
     private url = 'http://10.13.128.168:8080';
     constructor(private http: HttpClient) { }
 
-    
+    // ***********************************************************
+    getTotalDeposit(): Observable<any> {  
+        return this.http.get(`${this.url}/totalDeposit`);
+    }
+    getTotalManuel(): Observable<any> {  
+        return this.http.get(`${this.url}/totalManuel`);
+    }
+    getTotalCollect(): Observable<any> {  
+        return this.http.get(`${this.url}/totalCollect`);
+    }
+    // ***********************************************************
+
     getAllTransaction(): Observable<any> {  
         return this.http.get(`${this.url}/transactionses`);
     }
@@ -20,6 +31,9 @@ export class TransactionService
 
     getTransaction(id: number): Observable<any> {
         return this.http.get(`${this.url}/transactionses/${id}`);
+    }
+    getTransactionEmploye(id: number): Observable<any> {
+        return this.http.get(`${this.url}/transactionses/${id}/employe`);
     }
 
     createTransaction(client: Object): Observable<Object> {

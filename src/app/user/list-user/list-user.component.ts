@@ -1,3 +1,4 @@
+import { Client } from 'src/app/entities/client';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -13,6 +14,7 @@ export class ListUserComponent implements OnInit {
 
   searchValue: String;
   users:Employe[];
+  client:Client;
   constructor(private http:HttpClient,private userService:UserService, private router:Router) {  }
   
   ngOnInit() {
@@ -20,7 +22,15 @@ export class ListUserComponent implements OnInit {
   }
 
   loadData(){
-    this.userService.getAllUser().subscribe((data=>{this.users=data['_embedded']['employes'];}));
+    this.userService.getAllUser().subscribe((data=>{
+      this.users=data['_embedded']['employes'];
+      this.users.forEach(u=>{
+        this.userService.getUserClient(u.id).subscribe(data=>{
+          this.client=data;
+          u.client=this.client.nom;
+        });
+      });
+    }));
   }
 
   deleteUser(id:number){

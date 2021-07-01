@@ -1,127 +1,104 @@
 <app-menu></app-menu>
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
-  <ng-template #transaction let-modal>
-    <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">Liste des Transactions</h4>
-      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <div class="table-responsive">
-        <table class="table table-striped table-sm">
-          <thead>
-            <tr>
-              <th>N° transaction</th>
-              <th>Responsable</th>
-              <th>Type</th>
-              <th>Montant</th>
-              <th>Date</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr  *ngFor="let transaction of transactions">
-              <td>{{transaction.num}}</td>
-              <td>{{transaction.status}}</td>
-              <td>{{transaction.type}}</td>
-              <td>{{transaction.montant}}</td>
-              <td>{{transaction.date_transation}}</td>
-            </tr>
-          </tbody>
-        </table>
+  <div class="album py-4 ">
+    <ng-template #transaction let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Liste des Transactions</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" (click)="detailTransaction()">Voir plus</button>
-    </div>
-  </ng-template>
-  <!--......................................erreur.............................................-->
-  <ng-template #erreur let-modal>
-    <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">Liste des Erreurs</h4>
-      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <div class="table-responsive">
-        <table class="table table-striped table-sm">
-          <thead>
-            <tr>
-              <th>Type erreur</th>
-              <th>Message erreur</th>
-              <th>Date</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>error</td>
-              <td>message ............................</td>
-              <td>20/02/2021</td>
-            </tr>
-            <tr>
-              <td>error</td>
-              <td>message ............................</td>
-              <td>20/02/2021</td>
-            </tr>
-            <tr>
-              <td>warning</td>
-              <td>message ............................</td>
-              <td>20/02/2021</td>
-            </tr>
-            <tr>
-              <td>error</td>
-              <td>message ............................</td>
-              <td>20/02/2021</td>
-            </tr>
-            <tr>
-              <td>error</td>
-              <td>message ............................</td>
-              <td>20/02/2021</td>
-            </tr>
-            <tr>
-              <td>warning</td>
-              <td>message ............................</td>
-              <td>20/02/2021</td>
-            </tr>
-            <tr>
-              <td>error</td>
-              <td>message ............................</td>
-              <td>20/02/2021</td>
-            </tr>
-            <tr>
-              <td>warning</td>
-              <td>message ............................</td>
-              <td>20/02/2021</td>
-            </tr>
-            <tr>
-              <td>warning</td>
-              <td>message ............................</td>
-              <td>20/02/2021</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="modal-body">
+        <div class="table-responsive">
+          <table class="table table-striped table-sm">
+            <thead>
+              <tr>
+                <th>N° transaction</th>
+                <th>Responsable</th>
+                <th>Type</th>
+                <th>Montant</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let transaction of transactions">
+                <td>{{transaction.id}}</td>
+                <td>{{transaction.employe}}</td>
+                <td>{{transaction.type}}</td>
+                <td>{{transaction.montant}}</td>
+                <td>{{transaction.date_transaction | date: 'dd/MM/yyyy H:m'}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" (click)="detailErreur()">Voir plus</button>
-    </div>
-  </ng-template>
-  <div class="row"  *ngFor="let machine of machines">
-    <div class="col-md-2">
-      <div class="card mb-4 shadow-sm">
-        <div class="card-body align-items-center">
-          <img src="../../assets/brand/de-100-600x600.png " width="200px" height="200px">
-          <div class="text-sm-left">
-            <img  src="../../assets/brand/green.png" width="10px" height="10px">
-            {{machine.designation}}
-          </div>
-          <div class="d-flex justify-content-between">
-            <button type="button" (click)="open(transaction)" class="btn btn-secondary btn-sm">Transactions</button>
-            <button type="button" (click)="openErreur(erreur)" class=" btn btn-secondary btn-sm">Erreurs</button>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="detailTransaction(machineid)">Voir plus</button>
+      </div>
+    </ng-template>
+    <!--......................................erreur.............................................-->
+    <ng-template #erreur let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Liste des Erreurs</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="table-responsive">
+          <table class="table table-striped table-sm">
+            <thead>
+              <tr>
+                <th>Type erreur</th>
+                <th>Message erreur</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let erreur of erreurs">
+                <td>{{erreur.type}}</td>
+                <td>{{erreur.message}}</td>
+                <td>{{erreur.date_erreur| date: 'dd/MM/yyyy'}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="detailErreur(machineid)">Voir plus</button>
+      </div>
+    </ng-template>
+    <div class="row row-cols-4 row-cols-sm-2 row-cols-md-4 g-3">
+      <div class="col" *ngFor="let machine of machines">
+        <div class="card shadow-sm">
+          <img src="../../assets/brand/de-100-600x600.png" width="100px" height="100px">
+          <div class="card-body">
+            Machine Nᵒ {{machine.num}}
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" (click)="open(transaction,machine.id)"
+                  class="btn btn-sm btn-outline-primary">Transactions</button>
+                <button type="button" (click)="openErreur(erreur,machine.id)"
+                  class=" btn btn-sm btn-outline-danger">Erreurs</button>
+              </div>
+              <small class="text-muted">
+                <div *ngIf="machine.status === 'ON'"><img src="../../assets/brand/green.png" width="15px" height="15px">
+                </div>
+              </small>
+              <small class="text-muted">
+                <div *ngIf="machine.status === 'Off'"><img src="../../assets/brand/cercle-rouge-fond-transparent.png"
+                    width="15px" height="15px"></div>
+              </small>
+            </div>
           </div>
         </div>
       </div>
+    </div>
+    <div>
+      <ngx-charts-bar-vertical [view]="view" [scheme]="colorScheme" [results]="single" [gradient]="gradient"
+        [xAxis]="showXAxis" [yAxis]="showYAxis" [legend]="showLegend" [showXAxisLabel]="showXAxisLabel"
+        [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel" (select)="onSelect($event)">
+      </ngx-charts-bar-vertical>
     </div>
   </div>
 </main>

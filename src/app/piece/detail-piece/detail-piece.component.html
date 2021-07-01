@@ -5,8 +5,8 @@
         <h1 class="h2">Detail de la piece {{ piece.designation }}</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
             <div class="btn-group mr-2">
-                <a href="dashboard" type="button" class="btn btn-sm btn-outline-secondary">Accueil</a>
-                <a href="listpiece" type="button" class="btn btn-sm btn-outline-secondary">Liste des pieces</a>
+                <a [routerLink]="['/dashboardSite']" routerLinkActive="router-link-active"  type="button" class="btn btn-sm btn-outline-secondary">Accueil</a>
+        <a [routerLink]="['/listPiece']" routerLinkActive="router-link-active"  type="button" class="btn btn-sm btn-outline-secondary">Liste des pièces</a>
             </div>
         </div>
     </div>
@@ -14,10 +14,7 @@
         <div class="col-md-3 order-md-1">
             <div class="card mb-3 shadow-sm">
                 <div class="card-body" *ngIf="piece">
-                    <div class="form-group">
-                        <label for="name"><b>Numero : </b></label>
-                        {{ piece.num }}
-                    </div>
+                
                     <div class="form-group">
                         <label for="email"><b>Designation : </b></label>
                         {{ piece.designation }}

@@ -4,8 +4,9 @@
     <h1 class="h2">liste des sacs</h1>
     <div class="btn-toolbar mb-2 mb-md-0">
       <div class="btn-group mr-2">
-        <a href="dashboard" type="button" class="btn btn-sm btn-outline-secondary">Accueil</a>
-        <a href="newSac" type="button" class="btn btn-sm btn-outline-secondary">Nouveau sac</a>
+        <a [routerLink]="['/dashboardSite']" routerLinkActive="router-link-active" type="button"
+          class="btn btn-sm btn-outline-secondary">Accueil</a>
+        <a [routerLink]="['/newSac']" routerLinkActive="router-link-active"  type="button" class="btn btn-sm btn-outline-secondary">Nouveau sac</a>
       </div>
     </div>
   </div>

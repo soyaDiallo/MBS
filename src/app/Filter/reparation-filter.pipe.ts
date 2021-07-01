@@ -12,7 +12,6 @@ export class ReparationFilterPipe implements PipeTransform {
       return reparations;
     }
     return reparations.filter(reparation=>
-      reparation.num.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()) ||
       reparation.motif.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()) ||
       reparation.date_reparation.toString().toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()) 
       );

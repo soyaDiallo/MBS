@@ -12,7 +12,7 @@ export class ClientFilterPipe implements PipeTransform {
       return clients;
     }
     return clients.filter(client=>
-      client.name.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()) ||
+      client.nom.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()) ||
       client.email.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()) ||
       client.tel.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()) ||
       client.adresse.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()) 

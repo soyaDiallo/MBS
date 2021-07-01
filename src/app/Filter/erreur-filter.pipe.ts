@@ -12,8 +12,10 @@ export class ErreurFilterPipe implements PipeTransform {
       return erreurs;
     }
     return erreurs.filter(erreur=>
-      erreur.motif.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()) ||
-      erreur.reparation_date.toString().toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()) 
+      erreur.type.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()) ||
+      erreur.message.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()) ||
+      erreur.machine.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()) ||
+      erreur.date_erreur.toString().toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()) 
       );
   }
 }

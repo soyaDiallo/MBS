@@ -22,6 +22,13 @@ export class MachineService
         return this.http.get(`${this.url}/machines/${id}`);
     }
 
+    getMachineTransactions(id: number): Observable<any> {
+        return this.http.get(`${this.url}/machines/${id}/transactions`);
+    }
+    getMachineErreurs(id: number): Observable<any> {
+        return this.http.get(`${this.url}/machines/${id}/erreurs`);
+    }
+
     createMachine(client: Object): Observable<Object> {
         return this.http.post(`${this.url}/machines`, client);
       }

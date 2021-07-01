@@ -1,7 +1,8 @@
+import { Machine } from './machine';
 export class Reparation 
 {
     id:number;
-    num:String;
     date_reparation:Date;
-    motif:String;
+    motif:string;
+    machine:number;
 }

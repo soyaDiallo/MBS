@@ -5,8 +5,9 @@
         <h1 class="h2">Detail du sac n° {{sac.num}}</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
             <div class="btn-group mr-2">
-                <a href="dashboard" type="button" class="btn btn-sm btn-outline-secondary">Accueil</a>
-                <a href="listSac" type="button" class="btn btn-sm btn-outline-secondary">Liste des sacs</a>
+                <a [routerLink]="['/dashboardSite']" routerLinkActive="router-link-active" type="button"
+                    class="btn btn-sm btn-outline-secondary">Accueil</a>
+                <a [routerLink]="['/listSac']" routerLinkActive="router-link-active"  type="button" class="btn btn-sm btn-outline-secondary">Liste des sacs</a>
             </div>
         </div>
     </div>

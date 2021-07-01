@@ -1,3 +1,5 @@
+import { SiteTransactionsComponent } from './transaction/site-transactions/site-transactions.component';
+import { DashboardSiteComponent } from './dashboard/dashboard-site/dashboard-site.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ListClientComponent } from './client/list-client/list-client.component';
@@ -38,7 +40,8 @@ const routes: Routes = [
   { path : '', component : LoginComponent },
   { path : 'connexion', component : LoginComponent },
   { path : 'menu', component : MenuComponent },
-  { path : 'dashboard', component : DashboardComponent },
+  { path : 'dashboard/:id', component : DashboardComponent },
+  { path : 'dashboardSite', component : DashboardSiteComponent },
   //----------client-----------------------------------
   { path : 'listClient', component : ListClientComponent },
   { path : 'newClient', component : NewClientComponent },
@@ -75,8 +78,9 @@ const routes: Routes = [
   { path : 'updateReparation/:id', component : UpdateReparationComponent },
   { path : 'detailReparation/:id', component : DetailReparationComponent},
   //----------transaction et erreur-----------------------------------
-  { path : 'listTransaction', component : ListTransactionComponent },
-  { path : 'listErreur', component : ListErreurComponent }
+  { path : 'listTransaction/:id', component : ListTransactionComponent },
+  { path : 'sitesTransactions/:id', component : SiteTransactionsComponent },
+  { path : 'listErreur/:id', component : ListErreurComponent }
 ];
 
 @NgModule({

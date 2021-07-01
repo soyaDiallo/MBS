@@ -3,8 +3,7 @@ import { Machine } from "./machine";
 export class Piece 
 {
     id:number;
-    num:String;
-    designation:String;
-    date_arrivee:String;
+    designation:string;
+    date_arrivee:string;
     machine:Machine;
 }

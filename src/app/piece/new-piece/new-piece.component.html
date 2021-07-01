@@ -4,17 +4,13 @@
     <h1 class="h2">Nouvelle pièce</h1>
     <div class="btn-toolbar mb-2 mb-md-0">
       <div class="btn-group mr-2">
-        <a href="dashboard" type="button" class="btn btn-sm btn-outline-secondary">Accueil</a>
-        <a href="listPiece" type="button" class="btn btn-sm btn-outline-secondary">Liste des pièces</a>
+        <a [routerLink]="['/dashboardSite']" routerLinkActive="router-link-active"  type="button" class="btn btn-sm btn-outline-secondary">Accueil</a>
+        <a [routerLink]="['/listPiece']" routerLinkActive="router-link-active"  type="button" class="btn btn-sm btn-outline-secondary">Liste des pièces</a>
       </div>
     </div>
   </div>
   <form (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="num">Numero</label>
-      <input type="text" class="form-control" id="num" required [(ngModel)]="piece.num" name="num"
-        placeholder="Entrer le numero">
-    </div>
+    
     <div class="form-group">
       <label for="designation">Designation </label>
       <input type="text" class="form-control" id="designation" required [(ngModel)]="piece.designation"

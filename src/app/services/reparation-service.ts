@@ -21,6 +21,9 @@ export class ReparationService
     getReparation(id: number): Observable<any> {
         return this.http.get(`${this.url}/reparations/${id}`);
     }
+    getReparationMachine(id: number): Observable<any> {
+        return this.http.get(`${this.url}/reparations/${id}/machine`);
+    }
 
     createReparation(client: Object): Observable<Object> {
         return this.http.post(`${this.url}/reparations`, client);

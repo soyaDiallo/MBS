@@ -4,8 +4,8 @@
     <h1 class="h2">Liste des employés</h1>
     <div class="btn-toolbar mb-2 mb-md-0">
       <div class="btn-group mr-2">
-        <a href="dashboard" type="button" class="btn btn-sm btn-outline-secondary">Accueil</a>
-        <a href="newUser" type="button" class="btn btn-sm btn-outline-secondary">Nouvel employé</a>
+        <a [routerLink]="['/dashboardSite']" routerLinkActive="router-link-active"  type="button" class="btn btn-sm btn-outline-secondary">Accueil</a>
+        <a [routerLink]="['/newUser']" routerLinkActive="router-link-active"  type="button" class="btn btn-sm btn-outline-secondary">Nouvel employé</a>
       </div>
     </div>
   </div>
@@ -20,6 +20,7 @@
           <th>Prenom</th>
           <th>Login</th>
           <th>Type</th>
+          <th>Banque</th>
           <th>Action</th>
         </tr>
       </thead>
@@ -29,6 +30,7 @@
           <td>{{user.prenom}}</td>
           <td>{{user.login}}</td>
           <td>{{user.type}}</td>
+          <td>{{user.client}}</td>
           <td>
             <button (click)="detailUser(user.id)" class="btn btn-warning btn-sm">Detail</button>
             <button (click)="updateUser(user.id)" class="btn btn-success btn-sm">Modifier</button>

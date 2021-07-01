@@ -1,6 +1,8 @@
 export class Erreur 
 {
     id:number;
-    reparation_date:Date;
-    motif:String;
+    type:string;
+    message:string;
+    date_erreur:Date;
+    machine:string;
 }

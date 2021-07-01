@@ -1,9 +1,14 @@
+import { Client } from "./client";
+
 export class Employe 
 {
     id:number;
-    nom:String;
-    prenom:String;
-    login:String;
-    password:String;
-    type:String;
+    nom:string;
+    prenom:string;
+    login:string;
+    password:string;
+    type:string;
+    client:string;
+
+
 }

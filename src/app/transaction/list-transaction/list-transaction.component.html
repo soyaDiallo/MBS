@@ -1,10 +1,10 @@
 <app-menu></app-menu>
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
   <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
-    <h1 class="h2">Les transactions de la DE100</h1>
+    <h1 class="h2">Les transactions de la DE100 Nᵒ {{machine.num}}</h1>
     <div class="btn-toolbar mb-2 mb-md-0">
       <div class="btn-group mr-2">
-        <a href="dashboard" type="button" class="btn btn-sm btn-outline-secondary">Accueil</a>
+        <a [routerLink]="['/dashboardSite']" routerLinkActive="router-link-active"  type="button" class="btn btn-sm btn-outline-secondary">Accueil</a>
       </div>
     </div>
   </div>
@@ -23,11 +23,11 @@
       </thead>
       <tbody>
         <tr  *ngFor="let transaction of transactions">
-          <td>{{transaction.num}}</td>
-          <td>{{transaction.status}}</td>
+          <td>{{transaction.id}}</td>
+          <td>{{transaction.employe}}</td>
           <td>{{transaction.type}}</td>
           <td>{{transaction.montant}}</td>
-          <td>{{transaction.date_transation}}</td>
+          <td>{{transaction.date_transaction | date: 'dd/MM/yyyy H:m'}}</td>
         </tr>
       </tbody>
     </table>

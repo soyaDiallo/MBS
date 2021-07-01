@@ -1,8 +1,8 @@
 export class Client 
 {
     id:number;
-    name:String;
-    adresse:String;
-    tel:String;
-    email:String;
+    nom:string;
+    adresse:string;
+    tel:string;
+    email:string;
 }

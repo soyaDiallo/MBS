@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Client } from 'src/app/entities/client';
 import { Site } from 'src/app/entities/site';
 import { SiteService } from 'src/app/services/site-service';
 
@@ -13,6 +14,7 @@ export class ListSiteComponent implements OnInit {
 
   searchValue: String;
   sites:Site[];
+  client: Client;
   constructor(private http:HttpClient,private siteService:SiteService, private router:Router) {  }
   
   ngOnInit() {
@@ -20,7 +22,15 @@ export class ListSiteComponent implements OnInit {
   }
 
   loadData(){
-    this.siteService.getAllSite().subscribe((data=>{this.sites=data['_embedded']['sites'];}));
+    this.siteService.getAllSite().subscribe((data=>{
+      this.sites=data['_embedded']['sites'];
+      this.sites.forEach(s=>{
+        this.siteService.getSiteClient(s.id).subscribe(data=>{
+          this.client=data;
+          s.client=this.client.nom;
+        });
+      });
+    }));
   }
 
   deleteSite(id:number){

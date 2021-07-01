@@ -2,11 +2,11 @@
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
     <div
         class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Detail de la machine {{ machine.designation }}</h1>
+        <h1 class="h2">Detail de la machine {{ machine.num }}</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
             <div class="btn-group mr-2">
-                <a href="dashboard" type="button" class="btn btn-sm btn-outline-secondary">Accueil</a>
-                <a href="listMachine" type="button" class="btn btn-sm btn-outline-secondary">Liste des machines</a>
+                <a [routerLink]="['/dashboardSite']" routerLinkActive="router-link-active"  type="button" class="btn btn-sm btn-outline-secondary">Accueil</a>
+                <a [routerLink]="['/listMachine']" routerLinkActive="router-link-active"  type="button" class="btn btn-sm btn-outline-secondary">Liste des machines</a>
             </div>
         </div>
     </div>
@@ -20,10 +20,6 @@
                     <div class="form-group">
                         <label for="name"><b>Numero : </b></label>
                         {{ machine.num }}
-                    </div>
-                    <div class="form-group">
-                        <label for="email"><b>Designation : </b></label>
-                        {{ machine.designation }}
                     </div>
                     <div class="form-group">
                         <label for="telephone"><b>Statut : </b></label>

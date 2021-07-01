@@ -55,6 +55,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
+import { DashboardSiteComponent } from './dashboard/dashboard-site/dashboard-site.component';
+import { SiteTransactionsComponent } from './transaction/site-transactions/site-transactions.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [
@@ -100,7 +103,9 @@ import {MatInputModule} from '@angular/material/input';
     UserFilterPipe,
     ReparationFilterPipe,
     TransactionFilterPipe,
-    ErreurFilterPipe
+    ErreurFilterPipe,
+    DashboardSiteComponent,
+    SiteTransactionsComponent
   ],
   imports: [
     BrowserModule,
@@ -114,7 +119,8 @@ import {MatInputModule} from '@angular/material/input';
     MatFormFieldModule,
     MatSelectModule,
     ReactiveFormsModule,
-    MatInputModule
+    MatInputModule,
+    NgxChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

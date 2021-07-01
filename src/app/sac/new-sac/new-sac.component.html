@@ -4,21 +4,39 @@
     <h1 class="h2">Nouveau sac</h1>
     <div class="btn-toolbar mb-2 mb-md-0">
       <div class="btn-group mr-2">
-        <a href="dashboard" type="button" class="btn btn-sm btn-outline-secondary">Accueil</a>
-        <a href="listSac" type="button" class="btn btn-sm btn-outline-secondary">Liste des sacs</a>
+        <a [routerLink]="['/dashboardSite']" routerLinkActive="router-link-active" type="button"
+          class="btn btn-sm btn-outline-secondary">Accueil</a>
+        <a [routerLink]="['/listSac']" routerLinkActive="router-link-active" type="button"
+          class="btn btn-sm btn-outline-secondary">Liste des sacs</a>
       </div>
     </div>
   </div>
   <form (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="num">Numero</label>
-      <input type="text" class="form-control" id="num" required [(ngModel)]="sac.num" name="num"  placeholder="Entrer le numero" > 
+    <div class="form-group row align-items-center">
+      <div class="col-2 text-right ">
+        <label for="num">Numero</label>
+      </div>
+      <div class="col-8">
+        <input type="text" class="form-control" id="num" required [(ngModel)]="sac.num" name="num"
+          placeholder="Entrer le numero">
+      </div>
     </div>
-    <div class="form-group">
-      <label for="capacite">Capacité </label>
-      <input type="number" class="form-control" id="capacite" required [(ngModel)]="sac.capacite" name="capacite" placeholder="Entrer la designation" >
+    <div class="form-group row align-items-center">
+      <div class="col-2 text-right ">
+        <label for="capacite">Capacité </label>
+      </div>
+      <div class="col-8">
+        <input type="number" class="form-control" id="capacite" required [(ngModel)]="sac.capacite" name="capacite"
+          placeholder="Entrer la designation">
+      </div>
     </div>
-   
-    <button type="submit" class="btn btn-primary">Ajouter</button>
+    <div class="form-group row align-items-center">
+      <div class="col-2 text-right ">
+        <label for=""></label>
+      </div>
+      <div class="col-8">
+        <button type="submit" class="btn btn-primary">Ajouter</button>
+      </div>
+    </div>
   </form>
 </main>

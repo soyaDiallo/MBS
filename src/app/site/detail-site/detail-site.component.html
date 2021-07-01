@@ -5,8 +5,9 @@
         <h1 class="h2">Detail du site {{ site.nom }}</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
             <div class="btn-group mr-2">
-                <a href="dashboard" type="button" class="btn btn-sm btn-outline-secondary">Accueil</a>
-                <a href="listSite" type="button" class="btn btn-sm btn-outline-secondary">Liste des sites</a>
+                <a [routerLink]="['/dashboardSite']" routerLinkActive="router-link-active" type="button"
+                    class="btn btn-sm btn-outline-secondary">Accueil</a>
+                <a [routerLink]="['/listSite']" routerLinkActive="router-link-active"  type="button" class="btn btn-sm btn-outline-secondary">Liste des sites</a>
             </div>
         </div>
     </div>
@@ -32,7 +33,7 @@
                     </div>
                     <div class="form-group">
                         <label for="adresse"><b>Entreprise : </b></label>
-                        {{ client.name }}
+                        {{ client.nom }}
                     </div>
                 </div>
             </div>

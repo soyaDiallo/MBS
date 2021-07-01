@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
       this.message = data;
       this.router.navigate(['/dashboard']);
     });*/
-     this.router.navigate(['/dashboard']);
+     this.router.navigate(['/dashboardSite']);
   }
  
 }

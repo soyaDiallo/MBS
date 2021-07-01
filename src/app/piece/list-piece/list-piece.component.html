@@ -4,8 +4,8 @@
     <h1 class="h2">liste des pièces</h1>
     <div class="btn-toolbar mb-2 mb-md-0">
       <div class="btn-group mr-2">
-        <a href="dashboard" type="button" class="btn btn-sm btn-outline-secondary">Accueil</a>
-        <a href="newPiece" type="button" class="btn btn-sm btn-outline-secondary">Nouvelle pièce</a>
+        <a [routerLink]="['/dashboardSite']" routerLinkActive="router-link-active"  type="button" class="btn btn-sm btn-outline-secondary">Accueil</a>
+        <a [routerLink]="['/newPiece']" routerLinkActive="router-link-active"  type="button" class="btn btn-sm btn-outline-secondary">Nouvelle pièce</a>
       </div>
     </div>
   </div>
@@ -16,7 +16,6 @@
     <table class="table table-striped table-sm">
       <thead>
         <tr>
-          <th>Num</th>
           <th>Designation</th>
           <th>Date d'arrivée</th>
           <th>Action</th>
@@ -24,7 +23,6 @@
       </thead>
       <tbody>
         <tr *ngFor="let piece of pieces | pieceFilter:searchValue ">
-          <td>{{piece.num}}</td>
           <td>{{piece.designation}}</td>
           <td>{{piece.date_arrivee | date: 'dd/MM/yyyy'}}</td>
           <td>

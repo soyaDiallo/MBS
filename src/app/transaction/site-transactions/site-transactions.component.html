@@ -1,0 +1,35 @@
+<app-menu></app-menu>
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+    <h1 class="h2">Les transactions du site {{site.id}}</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+      <div class="btn-group mr-2">
+        <a [routerLink]="['/dashboardSite']" routerLinkActive="router-link-active"  type="button" class="btn btn-sm btn-outline-secondary">Accueil</a>
+      </div>
+    </div>
+  </div>
+  <input class="form-control form-control-dark w-100" type="text" placeholder="Recherche" aria-label="Recherche">
+  <br>
+  <div class="table-responsive">
+    <table class="table table-striped table-sm">
+      <thead>
+        <tr>
+          <th>N° transaction</th>
+          <th>Responsable</th>
+          <th>Type</th>
+          <th>Montant</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr  *ngFor="let transaction of ts">
+          <td>{{transaction.id}}</td>
+          <td>{{transaction.employe}}</td>
+          <td>{{transaction.type}}</td>
+          <td>{{transaction.montant}}</td>
+          <td>{{transaction.date_transaction | date: 'dd/MM/yyyy H:m'}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</main>

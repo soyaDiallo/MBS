@@ -4,8 +4,8 @@
     <h1 class="h2">Liste des sites</h1>
     <div class="btn-toolbar mb-2 mb-md-0">
       <div class="btn-group mr-2">
-        <a href="dashboard" type="button" class="btn btn-sm btn-outline-secondary">Accueil</a>
-        <a href="newSite" type="button" class="btn btn-sm btn-outline-secondary">Nouveau site</a>
+        <a [routerLink]="['/dashboardSite']" routerLinkActive="router-link-active"  type="button" class="btn btn-sm btn-outline-secondary">Accueil</a>
+        <a [routerLink]="['/newSite']" routerLinkActive="router-link-active"  type="button" class="btn btn-sm btn-outline-secondary">Nouveau site</a>
       </div>
     </div>
   </div>
@@ -19,7 +19,7 @@
           <th>Nom</th>
           <th>Adresse</th>
           <th>Ville</th>
-          <th>Pays</th>
+          <th>Banque</th>
           <th>Action</th>
         </tr>
       </thead>
@@ -28,7 +28,7 @@
           <td>{{site.nom}}</td>
           <td>{{site.adresse}}</td>
           <td>{{site.ville}}</td>
-          <td>{{site.pays}}</td>
+          <td>{{site.client}}</td>
           <td>
             <button (click)="detailSite(site.id)" class="btn btn-warning btn-sm">Detail</button>
             <button (click)="updateSite(site.id)" class="btn btn-success btn-sm">Modifier</button>

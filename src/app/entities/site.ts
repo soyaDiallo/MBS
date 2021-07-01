@@ -1,8 +1,11 @@
+import { Client } from "./client";
+
 export class Site 
 {
     id:number;
-    nom:String;
-    adresse:String;
-    ville:String;
-    pays:String;
+    nom:string;
+    adresse:string;
+    ville:string;
+    pays:string;
+    client:string;
 }
