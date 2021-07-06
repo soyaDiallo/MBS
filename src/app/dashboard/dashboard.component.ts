@@ -30,27 +30,78 @@ export class DashboardComponent implements OnInit {
   totalManuel: number;
   totalCollect: number;
 
+  totalDepositnbr: number;
+  totalManuelnbr: number;
+  totalCollectnbr: number;
+
+  valeurfiltre: string;
+  valeurMois: string;
+  valeurAnnee: string;
+
+  filtre = [
+    { value: 'jour', viewValue: 'Jour' },
+    { value: 'mois', viewValue: 'Mois' },
+    { value: 'annee', viewValue: 'Année' }
+  ]
+  mois = [
+    { value: '1', viewValue: 'Janvier' },
+    { value: '2', viewValue: 'Fevrier' },
+    { value: '3', viewValue: 'Mars' },
+    { value: '4', viewValue: 'Avril' },
+    { value: '5', viewValue: 'Mai' },
+    { value: '6', viewValue: 'Juin' },
+    { value: '7', viewValue: 'Juillet' },
+    { value: '8', viewValue: 'Aout' },
+    { value: '9', viewValue: 'Septembre' },
+    { value: '10', viewValue: 'Octobre' },
+    { value: '11', viewValue: 'Novembre' },
+    { value: '12', viewValue: 'Decembre' }
+  ]
+  annee = [
+    { value: '2021', viewValue: '2021' },
+    { value: '2022', viewValue: '2022' },
+    { value: '2023', viewValue: '2023' },
+    { value: '2025', viewValue: '2025' },
+    { value: '2026', viewValue: '2026' },
+    { value: '2027', viewValue: '2027' },
+    { value: '2028', viewValue: '2028' },
+    { value: '2029', viewValue: '2029' },
+    { value: '2030', viewValue: '2030' }
+  ]
+
   ///graphe#######################################
   single: any[];
-  multi: any[];
+  single2: any[];
 
-  view: any[] = [500, 400];
+  view: any[] = [350, 400];
+  view2: any[] = [450, 500];
 
   // options
   showXAxis = true;
   showYAxis = true;
   gradient = false;
-  showLegend = true;
+  showLegend = false;
   showXAxisLabel = true;
   xAxisLabel = 'Transactions';
-  showYAxisLabel = true;
+  showYAxisLabel = false;
   yAxisLabel = 'Montant';
-
+  isDoughnut: boolean = false;
+  legendPosition: string = 'below';
+  showLabels: boolean = true;
   colorScheme = {
     domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
   };
-  onSelect(event) {
-    console.log(event);
+
+  onSelect(data): void {
+    console.log('Item clicked', JSON.parse(JSON.stringify(data)));
+  }
+
+  onActivate(data): void {
+    console.log('Activate', JSON.parse(JSON.stringify(data)));
+  }
+
+  onDeactivate(data): void {
+    console.log('Deactivate', JSON.parse(JSON.stringify(data)));
   }
   // fin graphe####################################
   constructor(private modalService: NgbModal, private router: Router, private machineService: MachineService,
@@ -59,13 +110,18 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
+
     this.id = this.route.snapshot.params['id'];
     this.deplacementService.getMachinesSite(this.id).subscribe(data => { this.machines = data; });
-    this.transactionService.getTotalDeposit().subscribe(data => {
-      this.totalDeposit = data; console.log(this.totalCollect);
-      this.transactionService.getTotalManuel().subscribe(data => {
+    this.grapheBar("month", 6, this.id, "montant");
+    this.grapheCircle("month", 6, this.id, "nbr");
+  }
+  grapheBar(filterBy: string, value: number, site: number, nm: string) {
+    this.transactionService.getStat(filterBy, value, "deposit", site, nm).subscribe(data => {
+      this.totalDeposit = data;
+      this.transactionService.getStat(filterBy, value, "manuel", site, nm).subscribe(data => {
         this.totalManuel = data;
-        this.transactionService.getTotalCollect().subscribe(data => {
+        this.transactionService.getStat(filterBy, value, "collect", site, nm).subscribe(data => {
           this.totalCollect = data;
           Object.assign(this, {
             single: [
@@ -85,7 +141,33 @@ export class DashboardComponent implements OnInit {
           });
         });
       });
-
+    });
+  }
+  grapheCircle(filterBy: string, value: number, site: number, nm: string) {
+    this.transactionService.getStat(filterBy, value, "deposit", site, nm).subscribe(data => {
+      this.totalDepositnbr = data;
+      this.transactionService.getStat(filterBy, value, "manuel", site, nm).subscribe(data => {
+        this.totalManuelnbr = data;
+        this.transactionService.getStat(filterBy, value, "collect", site, nm).subscribe(data => {
+          this.totalCollectnbr = data;
+          Object.assign(this, {
+            single2: [
+              {
+                "name": "Deposit",
+                "value": this.totalDepositnbr
+              },
+              {
+                "name": "Manuel",
+                "value": this.totalManuelnbr
+              },
+              {
+                "name": "Collection",
+                "value": this.totalCollectnbr
+              }
+            ]
+          });
+        });
+      });
     });
   }
   open(transaction, id: number) {
@@ -134,6 +216,19 @@ export class DashboardComponent implements OnInit {
   detailErreur(id: number) {
     this.modalService.dismissAll();
     this.router.navigate(['listErreur', id]);
+  }
+
+  getVal() {
+    if (this.valeurfiltre == 'jour') {
+      this.grapheBar("day", 6, this.id, "montant");
+      this.grapheCircle("day", 6, this.id, "nbr");
+    } else if (this.valeurfiltre == 'mois') {
+      this.grapheBar("month", Number.parseInt(this.valeurMois), this.id, "montant");
+      this.grapheCircle("month", Number.parseInt(this.valeurMois), this.id, "nbr");
+    } else if (this.valeurfiltre == 'annee') {
+      this.grapheBar("year",Number.parseInt(this.valeurAnnee) , this.id, "montant");
+      this.grapheCircle("year", Number.parseInt(this.valeurAnnee), this.id, "nbr");
+    }
   }
 
 

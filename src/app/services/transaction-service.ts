@@ -4,24 +4,31 @@ import { Observable } from "rxjs";
 @Injectable({
     providedIn: 'root'
 })
-export class TransactionService 
-{
+export class TransactionService {
     private url = 'http://10.13.128.168:8080';
+    
     constructor(private http: HttpClient) { }
 
     // ***********************************************************
-    getTotalDeposit(): Observable<any> {  
-        return this.http.get(`${this.url}/totalDeposit`);
+    getStat(filterBy:string,value:number,type:string,site:number,nm:string): Observable<any> {
+        return this.http.get(`${this.url}/stat/${filterBy}/${value}/${type}/${site}/${nm}`);
     }
-    getTotalManuel(): Observable<any> {  
-        return this.http.get(`${this.url}/totalManuel`);
-    }
-    getTotalCollect(): Observable<any> {  
-        return this.http.get(`${this.url}/totalCollect`);
-    }
+   
     // ***********************************************************
 
-    getAllTransaction(): Observable<any> {  
+    // ***********************************************************
+    // getTotalDeposit(): Observable<any> {
+    //     return this.http.get(`${this.url}/totalDeposit`);
+    // }
+    // getTotalManuel(): Observable<any> {
+    //     return this.http.get(`${this.url}/totalManuel`);
+    // }
+    // getTotalCollect(): Observable<any> {
+    //     return this.http.get(`${this.url}/totalCollect`);
+    // }
+    // ***********************************************************
+
+    getAllTransaction(): Observable<any> {
         return this.http.get(`${this.url}/transactionses`);
     }
 
@@ -38,10 +45,10 @@ export class TransactionService
 
     createTransaction(client: Object): Observable<Object> {
         return this.http.post(`${this.url}/transactionses`, client);
-      }
-    
+    }
+
     updateTransaction(id: number, value: any): Observable<Object> {
         console.log(value);
         return this.http.put(`${this.url}/transactionses/${id}`, value);
-      }
+    }
 }

@@ -94,11 +94,56 @@
         </div>
       </div>
     </div>
-    <div>
-      <ngx-charts-bar-vertical [view]="view" [scheme]="colorScheme" [results]="single" [gradient]="gradient"
-        [xAxis]="showXAxis" [yAxis]="showYAxis" [legend]="showLegend" [showXAxisLabel]="showXAxisLabel"
-        [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel" (select)="onSelect($event)">
-      </ngx-charts-bar-vertical>
+    <br>
+    <div class="row row-cols-4 row-cols-sm-6 row-cols-md-8 g-3">
+      <div class="col">
+        <mat-form-field appearance="fill">
+          <mat-label>Filtre</mat-label>
+          <mat-select [(ngModel)]="valeurfiltre">
+            <mat-option *ngFor="let f of filtre" [value]="f.value">
+              {{f.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col" *ngIf="valeurfiltre==='mois'">
+        <mat-form-field appearance="fill" >
+          <mat-label>Mois</mat-label>
+          <mat-select [(ngModel)]="valeurMois">
+            <mat-option *ngFor="let m of mois" [value]="m.value">
+              {{m.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col" *ngIf="valeurfiltre==='annee'">
+        <mat-form-field appearance="fill">
+          <mat-label>Année</mat-label>
+          <mat-select [(ngModel)]="valeurAnnee">
+            <mat-option *ngFor="let a of annee" [value]="a.value">
+              {{a.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <button type="submit" (click)="getVal()" class="btn btn-primary btn-sm">Voir Statistiques</button>
+    <div class="row row-cols-4 row-cols-sm-2 row-cols-md-4 g-3">
+      <div class="col">
+        <h3>Somme Transactions </h3>
+        <ngx-charts-bar-vertical [view]="view" [scheme]="colorScheme" [results]="single" [gradient]="gradient"
+          [xAxis]="showXAxis" [yAxis]="showYAxis" [legend]="showLegend" [showXAxisLabel]="showXAxisLabel"
+          [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel"
+          (select)="onSelect($event)">
+        </ngx-charts-bar-vertical>
+      </div>
+      <div class="col">
+        <h3>Nombre Transactions</h3>
+        <ngx-charts-pie-chart [view]="view2" [scheme]="colorScheme" [results]="single2" [gradient]="gradient"
+          [legend]="showLegend" [legendPosition]="legendPosition" [labels]="showLabels" [doughnut]="isDoughnut"
+          (select)="onSelect($event)" (activate)="onActivate($event)" (deactivate)="onDeactivate($event)">
+        </ngx-charts-pie-chart>
+      </div>
     </div>
   </div>
 </main>
